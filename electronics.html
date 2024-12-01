@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Gifts</title>
+    <style>
+        :root {
+            --primary-color: #B22222; /* Firebrick Red */
+            --secondary-color: #228B22; /* Forest Green */
+            --accent-color: #FFD700; /* Gold */
+            --background-color: #F0F4F8; /* Soft Background */
+            --text-color: #1A237E; /* Deep Blue */
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mountains of Christmas', 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            background-image: url('images/e9a3c43d6936aa3adae37bd9d07d2be1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+        }
+
+        h1 {
+            color: firebrick;
+            text-align: center;
+            font-size: 54px;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #f1f1f1;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            transition: width 0.3s;
+        }
+
+        .sidebar.retracted {
+            width: 0;
+            padding: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #d70000; /* Christmas Red */
+            margin-bottom: 20px;
+        }
+
+        .sidebar div {
+            margin-bottom: 20px;
+        }
+
+        .sidebar label {
+            font-size: 18px;
+            color: #006400; /* Christmas Green */
+        }
+
+        .sidebar select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .sidebar.retracted div,
+        .sidebar.retracted h2 {
+            display: none;
+        }
+
+        /* Header styling */
+        header {
+            padding: 20px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            margin-left: 270px;
+            transition: margin-left 0.3s;
+        }
+
+        header.centered h1 {
+            margin-left: 20px;
+        }
+
+        .container {
+            margin-left: 270px;
+            margin-right: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            transition: margin-left 0.3s;
+        }
+
+        .container.centered {
+            margin-left: 20px;
+        }
+
+        /* Adjusted Item container size */
+        .item {
+            width: 30%; /* Adjusted width */
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            transition: background-color 0.3s, transform 0.3s;
+            overflow: hidden; /* Prevents images from going outside */
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .item:hover {
+            transform: translateY(-5px); /* Slight upward movement on hover */
+        }
+
+        .item h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #d70000; /* Christmas Red */
+        }
+
+        .item p {
+            font-size: 14px;
+            color: #006400; /* Christmas Green */
+        }
+
+        #playButton {
+            position: fixed;
+            bottom: 130px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #playButton:hover {
+            background-color: #006400; /* Darker green on hover */
+        }
+
+        /* Fixed position retract button */
+        .retract-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .retract-btn:hover {
+            background-color: #444;
+        }
+
+        /* Button to hide everything (Christmas tree button) */
+        .hide-all-btn {
+            position: fixed;
+            bottom: 200px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hide-all-btn span {
+            font-size: 20px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            color: white;
+            font-size: 1rem;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Snowflake Sizes and Speeds */
+        .snowflake:nth-child(odd) {
+            font-size: 1.5rem;
+            animation-duration: 10s;
+        }
+
+        .snowflake:nth-child(even) {
+            font-size: 2rem;
+            animation-duration: 7s;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio" preload="auto" loop>
+        <source src="images/30 Minutes of Traditional Christmas Music with Beautiful Christmas Tree and Fireplace Background_4.mp3" type="audio/mp3">
+      </audio>
+    <!-- Sidebar Filters -->
+    <div class="sidebar" id="sidebar">
+        <h2>Filters</h2>
+        <div>
+            <label for="price-filter">Price Range:</label>
+            <select id="price-filter">
+                <option value="all">All</option>
+                <option value="0-20">0 - 20</option>
+                <option value="21-50">21 - 50</option>
+                <option value="51-100">51 - 100</option>
+                <option value="101-200">101 - 200</option>
+                <option value="201-500">201 - 500</option>
+            </select>
+        </div>
+        <div>
+            <label for="sort-filter">Sort by Price:</label>
+            <select id="sort-filter">
+                <option value="asc">Ascending</option>
+                <option value="desc" selected>Descending</option>
+            </select>
+        </div>
+        <div>
+            <label for="wishlist-filter">Most Wanted:</label>
+            <select id="wishlist-filter">
+                <option value="all">All</option>
+                <option value="wanted">Wanted</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Retract Button -->
+    <button class="retract-btn" id="retract-btn">☰</button>
+    <button class="hide-all-btn" id="hide-all-btn">
+        🎄 <span>Click me!</span>
+    </button>
+    <button id="playButton">
+        🎵 <span>Click me!</span> 
+    </button>
+    </div>
+</div>
+    <div>
+        <header>
+            <h1>Electronics</h1>
+        </header>
+        <div class="container" id="item-container">
+            <!-- Item 1 -->
+            <div class="item" data-price="401.36" data-wanted="true">
+                <a href="https://store.creality.com/products/k1-3d-printer" target="_blank">
+                    <img src="images/c211e7c82fc33c9f07dd31fdb362dd0f_1080x.webp" alt="The Big Kahuna">
+                </a>
+                <h3>The Big Kahuna</h3>
+                <p>$401.36</p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item" data-price="39.99" data-wanted="false">
+                <a href="https://store.creality.com/products/2-pack-hyper-1-75mm-pla-3d-printing-filament-1kg" target="_blank">
+                    <img src="images/5d6e854878e8a957757b3c17226d3430_1080x.webp" alt="3D Printing Filament">
+                </a>
+                <h3>Extra 3D Printing Filament</h3>
+                <p>$39.99</p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="item" data-price="39.99" data-wanted="true">
+                <a href="https://www.amazon.com/YIHUA-Soldering-194%C2%BAF-896%C2%BAF-Adjustable-Calibration/dp/B082F1WKP9/ref=asc_df_B082F1WKP9?mcid=64cc6e5b6be139d5963a584e199c089e&tag=hyprod-20&linkCode=df0&hvadid=693071814610&hvpos=&hvnetw=g&hvrand=1155790417567642101&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9010769&hvtargid=pla-902673393028&th=1" target="_blank">
+                    <img src="images/71yimJ+NaFL._AC_SL1500_.jpg" alt="Soldering Iron">
+                </a>
+                <h3>Soldering Iron</h3>
+                <p>$39.99</p>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="item" data-price="29.99" data-wanted="false">
+                <a href="https://www.amazon.com/Klein-Tools-MM325-Multimeter-Manual-Ranging/dp/B0B57L9FNL" target="_blank">
+                    <img src="images/51N1gnauSaL._SL1000_.jpg" alt="Klein Multimeter">
+                </a>
+                <h3>Multimeter</h3>
+                <p>$29.99</p>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="item" data-price="21.99" data-wanted="false">
+                <a href="https://www.amazon.com/gp/aw/d/B0C8V88Z9D" target="_blank">
+                    <img src="images/614tXIQWSRL._AC_SL1000_.jpg" alt="Arduino Uno">
+                </a>
+                <h3>Arduino Uno</h3>
+                <p>$21.99</p>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="item" data-price="15.99" data-wanted="true">
+                <a href="https://www.superbrightleds.com/catalog/product/view/id/226949" target="_blank">
+                    <img src="images/cvps-20w-12v_pwrc2-18-2m-store.webp" alt="LED Power Supply">
+                </a>
+                <h3>LED Power Supply (20W)</h3>
+                <p>$15.99</p>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="item" data-price="13.99" data-wanted="true">
+                <a href="https://www.amazon.com/BOJACK-General-Purpose-Transistors-Assortment/dp/B07T5166B8/ref=sr_1_3?crid=1NUMVDKFVON5F&dib=eyJ2IjoiMSJ9.298U5yK3PHjJiqmjkC3IeKw0N9VG0DzhOiM0R_AZqPn61OnR4cwANxA_u--GEoaCnbfJdgCQ8WjrSAKPmVp_LilRVsrC3rQXF3hKwyp7-Oydh47stTYnZL3kz2o-_Y1Rft-KnH4i-luPl8Jn4H-EYNOrWyTjEG3LmXN6uMDdmvu7iQINHX-hhbK2i6pQ2P90agy4RFb3EGZhH8M9OY6BfpsMWG0J0IrnVfAlFvY5W-g.JvZE0f3zgzvIIhS_wVgNpHfMglOfBH8lzwHcL2NKyiQ&dib_tag=se&keywords=breadboard+transistors&qid=1732902040&sprefix=breadboard+transistors%2Caps%2C96&sr=8-3" target="_blank">
+                    <img src="images/51kGlh4dqaS._SY445_SX342_QL70_FMwebp_.webp" alt="Transistors">
+                </a>
+                <h3>Transistors</h3>
+                <p>$13.99</p>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="item" data-price="10.99" data-wanted="true">
+                <a href="https://www.superbrightleds.com/5050-smd-led-rgb-surface-mount-led-with-120-degree-viewing-angle-5050-smd-led" target="_blank">
+                    <img src="images/5050-rgb-store0.webp" alt="Solderable LEDs">
+                </a>
+                <h3>Solderable LEDs</h3>
+                <p>$10.99</p>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="item" data-price="7.99" data-wanted="false">
+                <a href="https://www.amazon.com/Dia0-032in-0-11lb-Precision-Electronics-Soldering/dp/B07Q167J98/ref=sr_1_5?crid=3OZXGZJ7QVHFC&dib=eyJ2IjoiMSJ9.ABcrlSd0nHVpgKwVpSxP1Fie1gNKQZvzInTTWD7jXIkmaGhaehtuZ-dFDAJWt5HvBiSsCVOYZqlof8bau_jrtpAMCEb1FBxffqsXCh2UzR2WQ0XOLUdWwC0iLqT2sdH5xU8Gbxddyf-zDFwMA50mE8L8VZ3PdjX2_PD4IFB35T9CU9WBDqMFq_19f7org6Dn_EUMOwEk815fAYvtPtqKS_llqReM4J0G-ltDVn9tuf-AXgOsUTL-bKgmRejhJByb03z0_Q0-nxOVVOevdVxoUEvt7fR8zSx5FHpNeaOtafA.ZRoDangOd57PHgcLJKJPk-gIYJLlILQ4iu1rVliUC68&dib_tag=se&keywords=lead+free+solder+wire&qid=1732902816&sprefix=lead+free+solder+wire%2Caps%2C106&sr=8-5" target="_blank">
+                    <img src="images/61a61qo2VUS.__AC_SX300_SY300_QL70_FMwebp_.webp" alt="Solder Wire">
+                </a>
+                <h3>Extra Solder Wire</h3>
+                <p>$7.99</p>
+            </div>
+            
+            <div class="item" data-price="249.99" data-wanted="true">
+                <a href="https://www.amazon.com/gp/product/B0C8ZJKPWC?tag=rtings-mn-r-amazon-20&ie=UTF8&asc_campaign=&asc_source=&asc_refurl=https%3A%2F%2Fwww.rtings.com%2Fmonitor%2Freviews%2Fbest%2Fgaming-monitors-under-300%3Fform%3DMG0AV3&th=1" target="_blank">
+                    <img src="images/814Apzqq9sL._AC_SX679_.jpg" alt="Gaming Monitor">
+                </a>
+                <h3>Monitor</h3>
+                <p>$249.99</p>
+            </div>
+
+            <div class="item" data-price="7.22" data-wanted="false">
+                <a href="https://www.amazon.com/Extension-Protector-Widely-Extender-Essentials/dp/B0BVZCLW3R/ref=asc_df_B0BVZCLW3R?mcid=81c08c62fa00309383a900b25de811a7&tag=hyprod-20&linkCode=df0&hvadid=693569091832&hvpos=&hvnetw=g&hvrand=5264856269509736518&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9010769&hvtargid=pla-2204701141572&th=1" target="_blank">
+                    <img src="images/61sOLfhbMhL._SX522_.jpg" alt="HDMI Cable">
+                </a>
+                <h3>HDMI Cable (1m)</h3>
+                <p>$7.22</p>
+            </div>
+
+            <div class="item" data-price="9.99" data-wanted="false">
+                <a href="https://www.amazon.com/Dia0-032in-0-11lb-Precision-Electronics-Soldering/dp/B07Q167J98/ref=sr_1_5?crid=3OZXGZJ7QVHFC&dib=eyJ2IjoiMSJ9.ABcrlSd0nHVpgKwVpSxP1Fie1gNKQZvzInTTWD7jXIkmaGhaehtuZ-dFDAJWt5HvBiSsCVOYZqlof8bau_jrtpAMCEb1FBxffqsXCh2UzR2WQ0XOLUdWwC0iLqT2sdH5xU8Gbxddyf-zDFwMA50mE8L8VZ3PdjX2_PD4IFB35T9CU9WBDqMFq_19f7org6Dn_EUMOwEk815fAYvtPtqKS_llqReM4J0G-ltDVn9tuf-AXgOsUTL-bKgmRejhJByb03z0_Q0-nxOVVOevdVxoUEvt7fR8zSx5FHpNeaOtafA.ZRoDangOd57PHgcLJKJPk-gIYJLlILQ4iu1rVliUC68&dib_tag=se&keywords=lead+free+solder+wire&qid=1732902816&sprefix=lead+free+solder+wire%2Caps%2C106&sr=8-5" target="_blank">
+                    <img src="images/516kyL3WcGL._AC_SX679_.jpg" alt="Extension Block">
+                </a>
+                <h3>All in One Extension Block</h3>
+                <p>$9.99</p>
+            </div>
+        </div>
+    <script>
+        // Create snowflakes continuously
+const createSnowflake = () => {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    
+    // Randomize properties
+    snowflake.style.left = `${Math.random() * 100}vw`;
+    snowflake.style.animationDuration = `${Math.random() * 15 + 10}s`; // 10-25 seconds
+    snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`; // 0.3-1 opacity
+    snowflake.style.fontSize = `${Math.random() * 2 + 0.5}rem`; // 0.5-2.5rem
+    
+    // More variety in snowflake characters
+    const snowflakeChars = ['❄', '❆'];
+    snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+    
+    document.body.appendChild(snowflake);
+
+    // Remove snowflake after it falls
+    snowflake.addEventListener('animationend', () => {
+        snowflake.remove();
+    });
+};
+
+// Create a style for snowflakes
+const snowflakeStyle = document.createElement('style');
+snowflakeStyle.innerHTML = `
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: 
+            translateY(110vh) 
+            translateX(100px) 
+            rotate(720deg);
+    }
+}
+`;
+document.head.appendChild(snowflakeStyle);
+
+// Create snowflakes at a steady rate
+setInterval(createSnowflake, 100);
+    </script>
+    <script>
+        const priceFilter = document.getElementById('price-filter');
+        const sortFilter = document.getElementById('sort-filter');
+        const wishlistFilter = document.getElementById('wishlist-filter');
+        const items = document.querySelectorAll('.item');
+        
+        // Function to filter items based on the selected filters
+        function applyFilters() {
+            const priceValue = priceFilter.value;
+            const sortValue = sortFilter.value;
+            const wishlistValue = wishlistFilter.value;
+            
+            items.forEach(item => {
+                const itemPrice = parseFloat(item.getAttribute('data-price'));
+                const itemWanted = item.getAttribute('data-wanted') === 'true';
+                let showItem = true;
+                
+                // Price Filter
+                if (priceValue !== 'all') {
+                    const [minPrice, maxPrice] = priceValue.split('-').map(Number);
+                    if (itemPrice < minPrice || itemPrice > maxPrice) {
+                        showItem = false;
+                    }
+                }
+                
+                // Wishlist Filter
+                if (wishlistValue === 'wanted' && !itemWanted) {
+                    showItem = false;
+                }
+
+                // Show or hide the item
+                item.style.display = showItem ? 'block' : 'none';
+            });
+            
+            // Sorting by price
+            const sortedItems = Array.from(items).filter(item => item.style.display !== 'none');
+            sortedItems.sort((a, b) => {
+                const priceA = parseFloat(a.getAttribute('data-price'));
+                const priceB = parseFloat(b.getAttribute('data-price'));
+                return sortValue === 'asc' ? priceA - priceB : priceB - priceA;
+            });
+            
+            // Reinsert sorted items into the container
+            const container = document.getElementById('item-container');
+            sortedItems.forEach(item => container.appendChild(item));
+        }
+        
+        // Add event listeners to the filters
+        priceFilter.addEventListener('change', applyFilters);
+        sortFilter.addEventListener('change', applyFilters);
+        wishlistFilter.addEventListener('change', applyFilters);
+        
+        // Apply filters on initial page load
+        applyFilters();
+    </script>
+    <script>
+        // JavaScript for retracting sidebar and hiding filters
+        document.getElementById('retract-btn').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var header = document.querySelector('header');
+            var container = document.getElementById('item-container');
+            var filters = document.querySelectorAll('.sidebar div');  // Select all filter divs
+            var filterText = document.querySelector('.sidebar h2'); // Select the "Filters" text
+
+            // Toggle sidebar width and hide/reveal filters
+            sidebar.classList.toggle('retracted');
+            container.classList.toggle('centered');
+            header.classList.toggle('centered');
+
+            // Adjust header and content container
+            if (sidebar.classList.contains('retracted')) {
+                // Sidebar retracted
+                header.style.marginLeft = '20px';
+                container.style.marginLeft = '20px';
+            } else {
+                // Sidebar expanded
+                header.style.marginLeft = '270px';
+                container.style.marginLeft = '270px';
+            }
+        });
+        </script>
+        <script>
+        document.getElementById('hide-all-btn').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var header = document.querySelector('header');
+            var container = document.getElementById('item-container');
+            var filters = document.querySelectorAll('.sidebar div');  // Select all filter divs
+            var filterText = document.querySelector('.sidebar h2'); // Select the "Filters" text
+            var buttons = document.querySelectorAll('.retract-btn, .hide-all-btn'); // Select buttons
+
+            // Add the "hidden" class to hide all elements
+            sidebar.classList.add('hidden');
+            header.classList.add('hidden');
+            container.classList.add('hidden');
+            filters.forEach(function(filter) {
+                filter.classList.add('hidden');
+            });
+            filterText.classList.add('hidden');
+            buttons.forEach(function(button) {
+                button.classList.add('hidden'); // Hide both buttons
+            });
+        });
+    </script>
+    <script>
+        const audio = document.getElementById('audio');
+        const playButton = document.getElementById('playButton');
+
+        // Function to start playing the audio when the button is clicked
+        playButton.addEventListener('click', function() {
+            audio.play();
+            playButton.style.display = 'none';  // Hide the button after the music starts
+        });
+
+        // Toggle play/pause on spacebar press
+        document.body.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') {
+                event.preventDefault();  // Prevent default spacebar behavior
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

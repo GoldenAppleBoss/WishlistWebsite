@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacks' Essentials</title>
+    <style>
+        :root {
+            --primary-color: #B22222; /* Firebrick Red */
+            --secondary-color: #228B22; /* Forest Green */
+            --accent-color: #FFD700; /* Gold */
+            --background-color: #F0F4F8; /* Soft Background */
+            --text-color: #1A237E; /* Deep Blue */
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mountains of Christmas', 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            background-image: url('images/e9a3c43d6936aa3adae37bd9d07d2be1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+        }
+
+        h1 {
+            color: firebrick;
+            text-align: center;
+            font-size: 54px;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #f1f1f1;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            transition: width 0.3s;
+        }
+
+        .sidebar.retracted {
+            width: 0;
+            padding: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #d70000; /* Christmas Red */
+            margin-bottom: 20px;
+        }
+
+        .sidebar div {
+            margin-bottom: 20px;
+        }
+
+        .sidebar label {
+            font-size: 18px;
+            color: #006400; /* Christmas Green */
+        }
+
+        .sidebar select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .sidebar.retracted div,
+        .sidebar.retracted h2 {
+            display: none;
+        }
+
+        /* Header styling */
+        header {
+            padding: 20px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            margin-left: 270px;
+            transition: margin-left 0.3s;
+        }
+
+        header.centered h1 {
+            margin-left: 20px;
+        }
+
+        .container {
+            margin-left: 270px;
+            margin-right: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            transition: margin-left 0.3s;
+        }
+
+        .container.centered {
+            margin-left: 20px;
+        }
+
+        /* Adjusted Item container size */
+        .item {
+            width: 30%; /* Adjusted width */
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            transition: background-color 0.3s, transform 0.3s;
+            overflow: hidden; /* Prevents images from going outside */
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .item:hover {
+            transform: translateY(-5px); /* Slight upward movement on hover */
+        }
+
+        .item h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #d70000; /* Christmas Red */
+        }
+
+        .item p {
+            font-size: 14px;
+            color: #006400; /* Christmas Green */
+        }
+
+        #playButton {
+            position: fixed;
+            bottom: 130px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #playButton:hover {
+            background-color: #006400; /* Darker green on hover */
+        }
+
+        /* Fixed position retract button */
+        .retract-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .retract-btn:hover {
+            background-color: #444;
+        }
+
+        /* Button to hide everything (Christmas tree button) */
+        .hide-all-btn {
+            position: fixed;
+            bottom: 200px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hide-all-btn span {
+            font-size: 20px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            color: white;
+            font-size: 1rem;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Snowflake Sizes and Speeds */
+        .snowflake:nth-child(odd) {
+            font-size: 1.5rem;
+            animation-duration: 10s;
+        }
+
+        .snowflake:nth-child(even) {
+            font-size: 2rem;
+            animation-duration: 7s;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio" preload="auto" loop>
+        <source src="images/30 Minutes of Traditional Christmas Music with Beautiful Christmas Tree and Fireplace Background_4.mp3" type="audio/mp3">
+      </audio>
+    <!-- Sidebar Filters -->
+    <div class="sidebar" id="sidebar">
+        <h2>Filters</h2>
+        <div>
+            <label for="price-filter">Price Range:</label>
+            <select id="price-filter">
+                <option value="all">All</option>
+                <option value="0-20">0 - 20</option>
+                <option value="21-50">21 - 50</option>
+                <option value="51-100">51 - 100</option>
+                <option value="101-200">101 - 200</option>
+                <option value="201-500">201 - 500</option>
+            </select>
+        </div>
+        <div>
+            <label for="sort-filter">Sort by Price:</label>
+            <select id="sort-filter">
+                <option value="asc">Ascending</option>
+                <option value="desc" selected>Descending</option>
+            </select>
+        </div>
+        <div>
+            <label for="wishlist-filter">Most Wanted:</label>
+            <select id="wishlist-filter">
+                <option value="all">All</option>
+                <option value="wanted">Wanted</option>
+            </select>
+        </div>
+        <div>
+            <label for = "essential-type">Type of Essential:</label>
+            <select id="essential-type">
+                <option value="all">All</option>
+                <option value = "hair-care">Hair Care</option>
+                <option value="oral-care">Oral Care</option>
+                <option value="decor">Decor</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Retract Button -->
+    <button class="retract-btn" id="retract-btn">☰</button>
+    <button class="hide-all-btn" id="hide-all-btn">
+        🎄 <span>Click me!</span>
+    </button>
+    <button id="playButton">
+        🎵 <span>Click me!</span> 
+    </button>
+    </div>
+</div>
+    <div>
+        <header>
+            <h1>Essentials</h1>
+        </header>
+        <div class="container" id="item-container">
+            <!-- Item 1 -->
+            <div class="item" data-price="32.98" data-wanted="true" hair-care = "false" oral-care = 'false' decor = 'true'>
+                <a href="https://www.homedepot.com/p/Home-Decorators-Collection-72-in-144-in-Telescoping-1-in-Single-Curtain-Rod-in-Matte-Black-AMB144FOHJ07/303673688?MERCH=REC-_-fbt_test-_-206849859-_-1-_-n/a-_-n/a-_-n/a-_-n/a-_-n/a" target="_blank">
+                    <img src="images/Screenshot 2024-12-01 161207.png" alt="Curtain Rod">
+                </a>
+                <h3>Curtain Rod</h3>
+                <p>$32.98</p>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="item" data-price="20.70" data-wanted="true" hair-care = "false" oral-care = 'false' decor = 'true'>
+                <a href="https://www.homedepot.com/p/Sun-Zero-Black-Woven-Thermal-Blackout-Curtain-100-in-W-x-84-in-L-47474/206849859" target="_blank">
+                    <img src="images/Screenshot 2024-12-01 161040.png" alt="Blackout Curtains">
+                </a>
+                <h3>Curtains</h3>
+                <p>$20.70</p>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="item" data-price="18.48" data-wanted="false" hair-care = "true" oral-care = 'false' decor = 'false'>
+                <a href="https://www.amazon.com/Aquage-Salt-Texturizing-Spray-Unisex/dp/B0BKBK8K85/ref=sxin_15_pa_sp_search_thematic_sspa?content-id=amzn1.sym.0fa4d6f6-459f-4af8-936c-b897b21fd1ed%3Aamzn1.sym.0fa4d6f6-459f-4af8-936c-b897b21fd1ed&cv_ct_cx=aquage+sea+salt+texturizing+spray&dib=eyJ2IjoiMSJ9.rfnbLwD4dihTZXOeplJKQy5aq--cpMYJUxSqYzOliI5BE6sKI7DKQ9becSkIc20UGEu07CPiPf7tMPdw9oX4rA.BA_08oXQ20u_jJVc6AN3YgdUqbOJm5-meHyOyXIqz54&dib_tag=se&hvadid=177806711992&hvdev=c&hvlocphy=9010769&hvnetw=g&hvqmt=e&hvrand=9992005523684878856&hvtargid=kwd-3587848125&hydadcr=21031_9689408&keywords=aquage+sea+salt+texturizing+spray&pd_rd_i=B0BKBK8K85&pd_rd_r=b1a81c95-766c-47f0-9956-f0b5bddb72cc&pd_rd_w=HMUAo&pd_rd_wg=zIcOU&pf_rd_p=0fa4d6f6-459f-4af8-936c-b897b21fd1ed&pf_rd_r=3TH8AX4EWH4WW107784J&qid=1732906340&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-ac07dfd7-5f37-4797-bcf7-0f4905c82761-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" target="_blank">
+                    <img src="images/61a+zcDPQkL._SX679_.jpg" alt="Sea Salt Spray">
+                </a>
+                <h3>Sea Salt Spray</h3>
+                <p>$18.48</p>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="item" data-price="9.26" data-wanted="false" hair-care = "false" oral-care = 'false' decor = 'true'>
+                <a href="https://www.amazon.com/Rose-Succulents-Artificial-Aesthetic-Bathroom/dp/B09V7XC4VV/ref=sr_1_8?dib=eyJ2IjoiMSJ9.blvMkk1C9JRV9VPH_hCUIzMqt3B_27uvFTJEmwobK6uKmQOpIevLKtKTaFpC_LEDrvGtKdFNqjNXfwGzasOHnVuBR-2Lfs6TmbBPeenS702Oq04b7hExTvPPJSQxoGQnAR0clIuEqGDuIUgWmvVgRjV5pkTQG2wIrueD9-wYtl3dUP-yr7sriM38QYqw-8-RwdTqEhRtk9Zm8T2k5b0yaZBntzV4JHj15WUa-d1zE-bsLwItHyxlYYx-OQhmnjOvWPRH-TKuT_3KjrNIwgjzF1cuABXSiosagCUlsNusU88.cg3lad8YRove3c9SraznUAR6LQh0s1xR8sJJlrwSvfc&dib_tag=se&hvadid=570596200499&hvdev=c&hvlocphy=9010769&hvnetw=g&hvqmt=e&hvrand=10935661929689850144&hvtargid=kwd-315712220334&hydadcr=19140_13375473&keywords=artificial+desk+plant&qid=1733084353&s=home-garden&sr=1-8" target="_blank">
+                    <img src="images/71-V-N2TpoL._AC_SX679_.jpg" alt="Artificial House Plants">
+                </a>
+                <h3>Fake Plants</h3>
+                <p>$9.26</p>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="item" data-price="7.99" data-wanted="false" hair-care = "true" oral-care = 'false' decor = 'false'>
+                <a href="https://www.target.com/p/men-39-s-texturizing-fiber-hair-pomade-4oz-goodfellow-38-co-8482/-/A-86391154#lnk=sametab" target="_blank">
+                    <img src="images/GUEST_367215b8-5f74-4566-8f16-be2aa61153b9.webp" alt="Hair Clay">
+                </a>
+                <h3>Hair Clay</h3>
+                <p>$7.99</p>
+            </div>
+            
+
+            <!-- Item 6 -->
+            <div class="item" data-price="3.99" data-wanted="true" hair-care = "false" oral-care = 'true' decor = 'false'>
+                <a href="https://www.target.com/p/oral-b-glide-mint-dental-floss-picks-with-long-lasting-scope-flavor-75-picks/-/A-13953923?sid=&ref=tgt_adv_xsp&AFID=google&fndsrc=tmnv&DFA=71700000111992070&CPNG=PLA_DVM%2Ba064R000014zYXHQA2-P%26G_Oral_Core_Google+Search_Standard+Shopping_2023-2024-966452&adgroup=PLA_P%26G&LID=700000001393753pgs&network=g&device=c&location=9010769&gad_source=1&gclid=CjwKCAiA6aW6BhBqEiwA6KzDc0FDXqYpejHDw2o0tazsy7D1jZaNXoNOVhin_2sH7URFsLPYgzHzXxoCHgsQAvD_BwE&gclsrc=aw.ds" target="_blank">
+                    <img src="images/GUEST_049faeb9-63f7-4d4d-96d1-4bcd313c82b3.webp" alt="Floss Sticks">
+                </a>
+                <h3>Floss Sticks</h3>
+                <p>$3.99</p>
+            </div>
+        </div>
+    <script>
+        // Create snowflakes continuously
+const createSnowflake = () => {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    
+    // Randomize properties
+    snowflake.style.left = `${Math.random() * 100}vw`;
+    snowflake.style.animationDuration = `${Math.random() * 15 + 10}s`; // 10-25 seconds
+    snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`; // 0.3-1 opacity
+    snowflake.style.fontSize = `${Math.random() * 2 + 0.5}rem`; // 0.5-2.5rem
+    
+    // More variety in snowflake characters
+    const snowflakeChars = ['❄', '❆'];
+    snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+    
+    document.body.appendChild(snowflake);
+
+    // Remove snowflake after it falls
+    snowflake.addEventListener('animationend', () => {
+        snowflake.remove();
+    });
+};
+
+// Create a style for snowflakes
+const snowflakeStyle = document.createElement('style');
+snowflakeStyle.innerHTML = `
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: 
+            translateY(110vh) 
+            translateX(100px) 
+            rotate(720deg);
+    }
+}
+`;
+document.head.appendChild(snowflakeStyle);
+
+// Create snowflakes at a steady rate
+setInterval(createSnowflake, 100);
+    </script>
+    <script>
+        const priceFilter = document.getElementById('price-filter');
+const sortFilter = document.getElementById('sort-filter');
+const wishlistFilter = document.getElementById('wishlist-filter');
+const essentialsFilter = document.getElementById('essential-type'); // Corrected ID
+const items = document.querySelectorAll('.item');
+
+// Function to apply filters
+function applyFilters() {
+    const priceValue = priceFilter.value;
+    const sortValue = sortFilter.value;
+    const wishlistValue = wishlistFilter.value;
+    const essentialTypeValue = essentialsFilter.value;
+
+    const filteredItems = Array.from(items).filter(item => {
+        const itemPrice = parseFloat(item.getAttribute('data-price'));
+        const itemWanted = item.getAttribute('data-wanted') === 'true';
+        const isHairCare = item.getAttribute('hair-care') === 'true';
+        const isOralCare = item.getAttribute('oral-care') === 'true';
+        const isDecor = item.getAttribute('decor') === 'true';
+
+        // Filter by price
+        if (priceValue !== 'all') {
+            const [minPrice, maxPrice] = priceValue.split('-').map(Number);
+            if (itemPrice < minPrice || itemPrice > maxPrice) return false;
+        }
+
+        // Filter by wishlist
+        if (wishlistValue === 'wanted' && !itemWanted) return false;
+
+        // Filter by essential type
+        if (essentialTypeValue === 'hair-care' && !isHairCare) return false;
+        if (essentialTypeValue === 'oral-care' && !isOralCare) return false;
+        if (essentialTypeValue === 'decor' && !isDecor) return false;
+
+        return true;
+    });
+
+    // Hide all items and display only filtered ones
+    items.forEach(item => (item.style.display = 'none'));
+    filteredItems.forEach(item => (item.style.display = 'block'));
+
+    // Sort filtered items if needed
+    if (sortValue === 'asc') {
+        filteredItems.sort((a, b) => a.getAttribute('data-price') - b.getAttribute('data-price'));
+    } else {
+        filteredItems.sort((a, b) => b.getAttribute('data-price') - a.getAttribute('data-price'));
+    }
+}
+
+// Event listeners for filters
+priceFilter.addEventListener('change', applyFilters);
+sortFilter.addEventListener('change', applyFilters);
+wishlistFilter.addEventListener('change', applyFilters);
+essentialsFilter.addEventListener('change', applyFilters);
+
+// Initial filter application
+applyFilters();
+    </script>
+    <script>
+        // JavaScript for retracting sidebar and hiding filters
+        document.getElementById('retract-btn').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var header = document.querySelector('header');
+            var container = document.getElementById('item-container');
+            var filters = document.querySelectorAll('.sidebar div');  // Select all filter divs
+            var filterText = document.querySelector('.sidebar h2'); // Select the "Filters" text
+
+            // Toggle sidebar width and hide/reveal filters
+            sidebar.classList.toggle('retracted');
+            container.classList.toggle('centered');
+            header.classList.toggle('centered');
+
+            // Adjust header and content container
+            if (sidebar.classList.contains('retracted')) {
+                // Sidebar retracted
+                header.style.marginLeft = '20px';
+                container.style.marginLeft = '20px';
+            } else {
+                // Sidebar expanded
+                header.style.marginLeft = '270px';
+                container.style.marginLeft = '270px';
+            }
+        });
+        </script>
+        <script>
+        document.getElementById('hide-all-btn').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var header = document.querySelector('header');
+            var container = document.getElementById('item-container');
+            var filters = document.querySelectorAll('.sidebar div');  // Select all filter divs
+            var filterText = document.querySelector('.sidebar h2'); // Select the "Filters" text
+            var buttons = document.querySelectorAll('.retract-btn, .hide-all-btn'); // Select buttons
+
+            // Add the "hidden" class to hide all elements
+            sidebar.classList.add('hidden');
+            header.classList.add('hidden');
+            container.classList.add('hidden');
+            filters.forEach(function(filter) {
+                filter.classList.add('hidden');
+            });
+            filterText.classList.add('hidden');
+            buttons.forEach(function(button) {
+                button.classList.add('hidden'); // Hide both buttons
+            });
+        });
+    </script>
+    <script>
+        const audio = document.getElementById('audio');
+        const playButton = document.getElementById('playButton');
+
+        // Function to start playing the audio when the button is clicked
+        playButton.addEventListener('click', function() {
+            audio.play();
+            playButton.style.display = 'none';  // Hide the button after the music starts
+        });
+
+        // Toggle play/pause on spacebar press
+        document.body.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') {
+                event.preventDefault();  // Prevent default spacebar behavior
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

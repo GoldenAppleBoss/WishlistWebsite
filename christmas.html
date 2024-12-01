@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack's Christmas Wishlist</title>
+    <style>
+        body {
+            font-family: 'Mountains of Christmas', 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-image: url('images/e9a3c43d6936aa3adae37bd9d07d2be1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ffffff;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .wishlist-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .wishlist-buttons a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.2s ease-in-out;
+            display: block;
+        }
+
+        .wishlist-buttons a:nth-child(odd) {
+            background-color: #8b0000;
+        }
+
+        .wishlist-buttons a:nth-child(even) {
+            background-color: #006400;
+        }
+
+        .wishlist-buttons a:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .hide-all-btn, #playButton {
+            position: fixed;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hide-all-btn {
+            bottom: 200px;
+            background-color: #8b0000;
+        }
+
+        .hide-all-btn:hover {
+            background-color: #660000;
+        }
+
+        #playButton {
+            bottom: 130px;
+            background-color: #006400;
+        }
+
+        #playButton:hover {
+            background-color: #004d00;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            color: white;
+            font-size: 1rem;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .snowflake:nth-child(odd) {
+            font-size: 1.5rem;
+            animation-duration: 10s;
+        }
+
+        .snowflake:nth-child(even) {
+            font-size: 2rem;
+            animation-duration: 7s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jack's Christmas Wishlist</h1>
+        </header>
+        <div class="wishlist-buttons">
+            <a href="electronics.html">Electronics</a>
+            <a href="essentials.html">Essentials</a>
+        </div>
+    </div>
+    <button class="hide-all-btn" id="hide-all-btn">🎄 <span>Click me!</span></button>
+    <button id="playButton">🎵 <span>Click me!</span></button>
+    <audio id="audio" src="images/30 Minutes of Traditional Christmas Music with Beautiful Christmas Tree and Fireplace Background_4.mp3"></audio>
+    <script>
+        const audio = document.getElementById('audio');
+        const playButton = document.getElementById('playButton');
+
+        playButton.addEventListener('click', function () {
+            audio.play();
+            playButton.style.display = 'none';
+        });
+
+        document.getElementById('hide-all-btn').addEventListener('click', function () {
+            document.querySelectorAll('.container, .wishlist-section').forEach(el => el.style.display = 'none');
+        });
+    </script>
+    <script>
+        const createSnowflake = () => {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 15 + 10}s`;
+            snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`;
+            snowflake.style.fontSize = `${Math.random() * 2 + 0.5}rem`;
+            const snowflakeChars = ['❄', '❆'];
+            snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+            document.body.appendChild(snowflake);
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        };
+        const snowflakeStyle = document.createElement('style');
+        snowflakeStyle.innerHTML = `
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+            user-select: none;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to {
+                transform: 
+                    translateY(110vh) 
+                    translateX(100px) 
+                    rotate(720deg);
+            }
+        }
+        `;
+        document.head.appendChild(snowflakeStyle);
+        setInterval(createSnowflake, 100);
+    </script>
+</body>
+</html>

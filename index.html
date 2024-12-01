@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack's Wishlists</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaf0f6;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 25%;
+            background-color: #ffffff;
+            border-right: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #3b5998;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .main-content h1 {
+            font-size: 2rem;
+            color: #004080;
+            margin-bottom: 20px;
+        }
+        .main-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .sidebar a:hover {
+            text-decoration: none;
+        }
+        .christmas-link {
+            background-color: #d43939;
+            color: #ffffff;
+            border: 2px solid #d00000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .christmas-link:hover {
+            background-color: #dc2323;
+            border-color: #ff0000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Occasions</h2>
+            <ul>
+                <li><a href="christmas.html" class="christmas-link">Christmas 🎄</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h1>Jack's Wishlists</h1>
+            <p>Welcome to my wishlists! Here you will find lists of items I would love to receive for various occasions throughout the year.</p>
+        </main>
+    </div>
+</body>
+</html>
