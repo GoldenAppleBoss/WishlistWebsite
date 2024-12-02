@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolwork-Related Gifts</title>
+    <style>
+        :root {
+            --primary-color: #B22222;
+            --secondary-color: #228B22;
+            --accent-color: #FFD700;
+            --background-color: #F0F4F8;
+            --text-color: #1A237E;
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mountains of Christmas', 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-image: url('images/e9a3c43d6936aa3adae37bd9d07d2be1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+        }
+
+        h1 {
+            color: firebrick;
+            text-align: center;
+            font-size: 54px;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #f1f1f1;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            transition: width 0.3s;
+        }
+
+        .sidebar.retracted {
+            width: 0;
+            padding: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #d70000;
+            margin-bottom: 20px;
+        }
+
+        .sidebar div {
+            margin-bottom: 20px;
+        }
+
+        .sidebar label {
+            font-size: 18px;
+            color: #006400;
+        }
+
+        .sidebar select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .sidebar.retracted div,
+        .sidebar.retracted h2 {
+            display: none;
+        }
+
+        header {
+            padding: 20px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            margin-left: 270px;
+            transition: margin-left 0.3s;
+        }
+
+        header.centered h1 {
+            margin-left: 20px;
+        }
+
+        .container {
+            margin-left: 270px;
+            margin-right: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            transition: margin-left 0.3s;
+        }
+
+        .container.centered {
+            margin-left: 20px;
+        }
+
+        .item {
+            width: 30%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            transition: background-color 0.3s, transform 0.3s;
+            overflow: hidden;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #d70000;
+        }
+
+        .item p {
+            font-size: 14px;
+            color: #006400;
+        }
+
+        #playButton {
+            position: fixed;
+            bottom: 130px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #playButton:hover {
+            background-color: #006400;
+        }
+
+        .retract-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .retract-btn:hover {
+            background-color: #444;
+        }
+
+        .hide-all-btn {
+            position: fixed;
+            bottom: 200px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hide-all-btn span {
+            font-size: 20px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            color: white;
+            font-size: 1rem;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .snowflake:nth-child(odd) {
+            font-size: 1.5rem;
+            animation-duration: 10s;
+        }
+
+        .snowflake:nth-child(even) {
+            font-size: 2rem;
+            animation-duration: 7s;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio" preload="auto" loop>
+        <source src="images/30 Minutes of Traditional Christmas Music with Beautiful Christmas Tree and Fireplace Background_4.mp3" type="audio/mp3">
+    </audio>
+    <div class="sidebar" id="sidebar">
+        <h2>Filters</h2>
+        <div>
+            <label for="price-filter">Price Range:</label>
+            <select id="price-filter">
+                <option value="all">All</option>
+                <option value="0-20">0 - 20</option>
+                <option value="21-50">21 - 50</option>
+                <option value="51-100">51 - 100</option>
+                <option value="101-200">101 - 200</option>
+                <option value="201-500">201 - 500</option>
+            </select>
+        </div>
+        <div>
+            <label for="sort-filter">Sort by Price:</label>
+            <select id="sort-filter">
+                <option value="asc">Ascending</option>
+                <option value="desc" selected>Descending</option>
+            </select>
+        </div>
+        <div>
+            <label for="wishlist-filter">Most Wanted:</label>
+            <select id="wishlist-filter">
+                <option value="all">All</option>
+                <option value="wanted">Wanted</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="retract-btn" id="retract-btn">☰</button>
+    <button class="hide-all-btn" id="hide-all-btn">
+        🎄 <span>Click me!</span>
+    </button>
+    <button id="playButton">
+        🎵 <span>Click me!</span> 
+    </button>
+    </div>
+</div>
+    <div>
+        <header>
+            <h1>Schoolwork</h1>
+        </header>
+        <div class="container" id="item-container">
+            <div class="item" data-price="88.00" data-wanted="true">
+                <img src="images/Screenshot 2024-12-01 175704.png" alt="Dry Erase Whiteboard (4' x 3')">
+                <h3>Dry Erase Whiteboard (4' x 3')</h3>
+                <p>$88.00</p>
+            </div>
+            <div class="item" data-price="8.52" data-wanted="false">
+                <a href="https://www.amazon.com/Erase-Markers-Chisel-Assorted-Colors/dp/B0004F7GUI/ref=sr_1_1?dib=eyJ2IjoiMSJ9.LR1DFR7x0SyfZwuhhnXBb210MyZhVmCQXJdHGQkqvjYQCuzgnykph4O7KD9w0RSYLBoMPP5p50u2S0bDhvWY60nwDkO8k3ACkSZFgKsOq6dF4AWdLWyp1dnDmroaCCzY251i4L5h4CYocg7H4AT9J5zCCPprqDnzWSwp_IHnIfNtAnoSdg2GUD5Sa31CgkD6pD0D99CYW3k4Wf306syK2B2rykW0KrOzZFcdOap8-z2vNSRWZDko4036Tcn1NXOMJ1avYJQbFqbKhzgolVUrjHPlcHNxKlAYzNpmwNpbPVI.i1JpZSEG5steCVdHRosKoM97pp03ReXnAGRPOgMwocc&dib_tag=se&keywords=dry%2Berase%2Bexpo%2Bmarkers&qid=1732908910&sr=8-1&th=1" alt="Dry Erase Markers">
+                    <img src="images/81IsljJA--L._AC_SX679_.jpg" alt="Dry Erase Markers">
+                </a>
+                <h3>Dry Erase Markers</h3>
+                <p>$8.52</p>
+            </div>
+            <div class="item" data-price="6.87" data-wanted="false">
+                <a href="https://www.amazon.com/1884309-Low-Odor-Markers-Assorted-8-Count/dp/B00I8OBAOU/ref=sr_1_1?crid=232Q19I5SPLQT&dib=eyJ2IjoiMSJ9.7AHKsHpgAfpxRJI4Xta31Bdm8xgpRo1l7zKfzaAQbg7t4sweZz7jlnS8ozjZM8FwOWNTDh_k0kt1_BMr5WzpAUvF43K9zcf2smBKDDPzNyyJ4K2LIaRcL6g3HMqW5k9jOfTjR4nL6zx3bD18j6XHi4WIx8pJ4eWgX03N6eQlq2ivmVERWDf5v6oQP2jzbNM4nnuTdNnEnvndxnTskAgcyhoOgYM7d-kDGmIkRT1lscWlpKBC5up0Etmgz4XxfCtCLOldZ2InDqoEAFzlgfa3Yh8CwjWhEFUlOQmv6wyCCA8.cuPpN0_3HVcioUa8O58zUDnJksxSY6_UYjbSHgst8cY&dib_tag=se&keywords=fine%2Btip%2Bexpo%2Bmarkers&qid=1732909000&s=office-products&sprefix=fine%2Btip%2B%2Coffice-products%2C98&sr=1-1&th=1" alt="Fine Tip Dry Erase Markers">
+                    <img src="images/81t3wznsRvL._AC_SX679_.jpg" alt="Fine Tip Expo Markers">
+                </a>
+                <h3>Fine Tip Expos</h3>
+                <p>$6.87</p>
+            </div>
+            <div class="item" data-price="8.99" data-wanted="false">
+                <a href="https://www.amazon.com/Screens-Digiroot-Sensitivity-Precision-Capacitive/dp/B09CDCN7VS/ref=sr_1_4?dib=eyJ2IjoiMSJ9.ROfYNaJE5ThjKEHwK_mlPVaC_Ur7RgskVvbW-fl-58gDEPO8ZlEqn4VhMqP3h9Y4p74DNlmvicbWg6RRKpw4wOVx45linP0zxKAKikrgmGJgy7TrGyJ1iQDPpDHWM8qtGzzUo_o3n85UQeiA_KSRoRAZYM3SzHBGmSZOPAXbV9kW16A5bkQxsZG_TbsLdCTubn3CJ-0jKllDZknyviblD1_j8BDv5-MWFgTXZodRpnc.-4TRY4NbDxF-qQk0rqKsLpi0ceDHkUVa5xRjs_13XV8&dib_tag=se&hvadid=683903275400&hvdev=c&hvlocphy=9010769&hvnetw=g&hvqmt=e&hvrand=12186580562713151262&hvtargid=kwd-392720703766&hydadcr=24580_13533925&keywords=screen%2Btouch%2Bstylus%2Bpen&qid=1732909069&sr=8-4&th=1" alt="Stylus Pens">
+                    <img src="images/61oA6+eu4BL._AC_SX679_.jpg" alt="Stylus Pens">
+                </a>
+                <h3>Stylus Pens</h3>
+                <p>$8.99</p>
+            </div>
+            <div class="item" data-price="43.99" data-wanted="true">
+                <a href="https://www.amazon.com/Architecting-Modern-Java-Applications-business-oriented-ebook/dp/B0761YQNRM/ref=sr_1_1?dib=eyJ2IjoiMSJ9._iTQEQFGe5s_jgTPy_GvEw.5dH7LByzzpy8HwRSjcXlaoTUkSW63NGCWhrh5pUEzPA&dib_tag=se&keywords=9781788397124&linkCode=qs&qid=1733102028&s=books&sr=1-1" alt="Book">
+                    <img src="images/81svZKo6b3L._SY522_.jpg" alt="EE Book">
+                </a>
+                <h3>EE Applications Book</h3>
+                <p>$43.99</p>
+            </div>
+            <div class="item" data-price="25.46" data-wanted="false">
+                <a href="https://www.amazon.com/BOHON-Charging-Intelligent-Induction-Gooseneck/dp/B08SK4DMHR/ref=sr_1_11?crid=V8TA1S9FO4CZ&dib=eyJ2IjoiMSJ9.2kLlnG8lfGJH7LWjoEYY9Ikni2EGUkD4Kacu8DasiIjCOWeBACYOK5I6drAKPGtzdxlcMsXFFZTW0aTp38qBUPnyNtPm3M_nIPKN4YrU3IJkGSlu01hKQGb40jWS_Dy_K0Xo-MILGGLPTxwSd5oK2iCyCYxAA5yq98dV31UJIlHQQI_vIeQRgdmvAHnwSNOAFCw8gcNX3jJv-fdrPoGbH49j-DdKmVt45xnEw31KbilfyPSJa7ngU8Py_g2o-ZDG16tcy1Z7hkWQCdWb3uQtvJJtDB1IFohj0FQe2P--0vs.f8RqD1btxdvSA4nGj1kTpnYdZf155eCazCshl-fK0gY&dib_tag=se&keywords=desk%2Blamp&qid=1733083427&sprefix=desk%2Blamp%2Caps%2C128&sr=8-11&th=1" alt="Dry Erase Markers">
+                    <img src="images/61s7RGRwSoL.__AC_SY445_SX342_QL70_FMwebp_.webp" alt="Desk Lamp">
+                </a>
+                <h3>Desk Lamp</h3>
+                <p>$25.46</p>
+            </div>
+            <div class="item" data-price="25.19" data-wanted="true">
+                <a href="https://www.amazon.com/gp/product/B071ZYHCM6/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&th=1" alt="Dry Erase Markers">
+                    <img src="images/71lZYNsfyFL._AC_SX679_.jpg" alt="Backpack">
+                </a>
+                <h3>Travel Backpack</h3>
+                <p>$25.19</p>
+            </div>
+            <div class="item" data-price="5.91" data-wanted="false">
+                <a href="https://www.officedepot.com/a/products/3835061/Office-Depot-Wirebound-Notebooks-8-12/?utm_source=google&utm_medium=sag?utm_source=google&utm_medium=cpc&region_id=001214&utm_campaign=pla_cor_evg_paper_general_unid_prch_non-match&mediacampaignid=71700000119141347&utm_source=google&utm_medium=cpc&gad_source=1&gclid=Cj0KCQiAr7C6BhDRARIsAOUKifiefCjb42kOb04fQopbuwsmGxUN68-iHUg9X2TSupxTuuauncE8SgcaAij6EALw_wcB&gclsrc=aw.ds" alt="Dry Erase Markers">
+                    <img src="images/3835061.jpg" alt="Notebooks">
+                </a>
+                <h3>Notebooks</h3>
+                <p>$5.91</p>
+            </div>
+            <div class="item" data-price="25.46" data-wanted="false">
+                <a href="https://www.amazon.com/Bankers-Box-Decorative-Compartment-6170301/dp/B00H2LIMKA/ref=sr_1_7?crid=3DKUFKLBSKS0K&dib=eyJ2IjoiMSJ9.jP3xutspVK3-35cAXOWoi2IGjyM930qGLrDVPoeykcQW3FHFFEFiWXozOJ3lU8qXs4j4frzLlStWuPHAa8Wn8ZSLc6ufxHcrMg5l3RZHyzmP_tXQ86pujsQpqPey5gOIAASSwDRjF0XtfvNkAakVmZVGh4UoBYmwJOHmhSFfRivyBhHHmwSBIz6_cUtk64Awm-Ij--Oifl5jugQMjAb091ZJ9pDEhP3z4wnlDQ4Oe2Iozfj76N0zPpfNZ4SCEJEXV_T98G8j0R8raA5f5aSvG0s5fOLufBjyeI99HGWTQFY.mvPbhoZAeFkVq1Vy5TIvREQ6HFcFbLW6x6wI3Y12lOw&dib_tag=se&keywords=small%2Boffice%2Bcubby%2Borganizer&qid=1733084483&sprefix=small%2Boffice%2Bcubby%2Borganizer%2Caps%2C87&sr=8-7&th=1&psc=1" alt="Dry Erase Markers">
+                    <img src="images/71Jk8cyojJL.__AC_SX300_SY300_QL70_FMwebp_.webp" alt="Desk Cubby">
+                </a>
+                <h3>Desk Cubby</h3>
+                <p>$27.87</p>
+            </div>
+        </div>
+    <script>
+        const createSnowflake = () => {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.animationDuration = `${Math.random() * 15 + 10}s`;
+        snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`;
+        snowflake.style.fontSize = `${Math.random() * 2 + 0.5}rem`;
+        const snowflakeChars = ['❄', '❆'];
+        snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+        document.body.appendChild(snowflake);
+        snowflake.addEventListener('animationend', () => {
+            snowflake.remove();
+        });
+    };
+
+    const snowflakeStyle = document.createElement('style');
+    snowflakeStyle.innerHTML = `
+    .snowflake {
+        position: fixed;
+        top: -10px;
+        color: white;
+        text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        user-select: none;
+        pointer-events: none;
+        z-index: 9999;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: 
+                translateY(110vh) 
+                translateX(100px) 
+                rotate(720deg);
+        }
+    }
+    `;
+    document.head.appendChild(snowflakeStyle);
+
+    setInterval(createSnowflake, 100);
+
+    const priceFilter = document.getElementById('price-filter');
+    const sortFilter = document.getElementById('sort-filter');
+    const wishlistFilter = document.getElementById('wishlist-filter');
+    const items = document.querySelectorAll('.item');
+
+    function applyFilters() {
+        const priceValue = priceFilter.value;
+        const sortValue = sortFilter.value;
+        const wishlistValue = wishlistFilter.value;
+        items.forEach(item => {
+            const itemPrice = parseFloat(item.getAttribute('data-price'));
+            const itemWanted = item.getAttribute('data-wanted') === 'true';
+            let showItem = true;
+            if (priceValue !== 'all') {
+                const [minPrice, maxPrice] = priceValue.split('-').map(Number);
+                if (itemPrice < minPrice || itemPrice > maxPrice) {
+                    showItem = false;
+                }
+            }
+            if (wishlistValue === 'wanted' && !itemWanted) {
+                showItem = false;
+            }
+            item.style.display = showItem ? 'block' : 'none';
+        });
+        const sortedItems = Array.from(items).filter(item => item.style.display !== 'none');
+        sortedItems.sort((a, b) => {
+            const priceA = parseFloat(a.getAttribute('data-price'));
+            const priceB = parseFloat(b.getAttribute('data-price'));
+            return sortValue === 'asc' ? priceA - priceB : priceB - priceA;
+        });
+        const container = document.getElementById('item-container');
+        sortedItems.forEach(item => container.appendChild(item));
+    }
+
+    priceFilter.addEventListener('change', applyFilters);
+    sortFilter.addEventListener('change', applyFilters);
+    wishlistFilter.addEventListener('change', applyFilters);
+    applyFilters();
+
+    document.getElementById('retract-btn').addEventListener('click', function() {
+        var sidebar = document.getElementById('sidebar');
+        var header = document.querySelector('header');
+        var container = document.getElementById('item-container');
+        var filters = document.querySelectorAll('.sidebar div');
+        var filterText = document.querySelector('.sidebar h2');
+        sidebar.classList.toggle('retracted');
+        container.classList.toggle('centered');
+        header.classList.toggle('centered');
+        if (sidebar.classList.contains('retracted')) {
+            header.style.marginLeft = '20px';
+            container.style.marginLeft = '20px';
+        } else {
+            header.style.marginLeft = '270px';
+            container.style.marginLeft = '270px';
+        }
+    });
+
+    document.getElementById('hide-all-btn').addEventListener('click', function() {
+        var sidebar = document.getElementById('sidebar');
+        var header = document.querySelector('header');
+        var container = document.getElementById('item-container');
+        var filters = document.querySelectorAll('.sidebar div');
+        var filterText = document.querySelector('.sidebar h2');
+        var buttons = document.querySelectorAll('.retract-btn, .hide-all-btn');
+        sidebar.classList.add('hidden');
+        header.classList.add('hidden');
+        container.classList.add('hidden');
+        filters.forEach(function(filter) {
+            filter.classList.add('hidden');
+        });
+        filterText.classList.add('hidden');
+        buttons.forEach(function(button) {
+            button.classList.add('hidden');
+        });
+    });
+
+    const audio = document.getElementById('audio');
+    const playButton = document.getElementById('playButton');
+
+    playButton.addEventListener('click', function() {
+        audio.play();
+        playButton.style.display = 'none';
+    });
+
+    document.body.addEventListener('keydown', function(event) {
+        if (event.code === 'Space') {
+            event.preventDefault();
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    });
+    </script>
+</body>
+</html>

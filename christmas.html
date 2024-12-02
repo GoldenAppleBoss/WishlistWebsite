@@ -15,7 +15,6 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             display: flex;
-            flex-direction: column;
         }
 
         .container {
@@ -32,8 +31,8 @@
         header h1 {
             font-size: 3em;
             margin: 0;
-            color: #ffffff;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            color: #ffffff; 
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); 
         }
 
         .wishlist-buttons {
@@ -62,14 +61,14 @@
         }
 
         .wishlist-buttons a:nth-child(even) {
-            background-color: #006400;
+            background-color: #006400; 
         }
 
         .wishlist-buttons a:hover {
             transform: scale(1.05);
             opacity: 0.9;
         }
-
+        
         .hide-all-btn, #playButton {
             position: fixed;
             left: 20px;
@@ -86,7 +85,7 @@
 
         .hide-all-btn {
             bottom: 200px;
-            background-color: #8b0000;
+            background-color: #8b0000; 
         }
 
         .hide-all-btn:hover {
@@ -95,11 +94,11 @@
 
         #playButton {
             bottom: 130px;
-            background-color: #006400;
+            background-color: #006400; 
         }
 
         #playButton:hover {
-            background-color: #004d00;
+            background-color: #004d00; 
         }
 
         .snowflake {
@@ -112,17 +111,14 @@
             font-size: 1rem;
             animation: fall linear infinite;
         }
-
         @keyframes fall {
             0% { transform: translateY(0); }
             100% { transform: translateY(100vh); }
         }
-
         .snowflake:nth-child(odd) {
             font-size: 1.5rem;
             animation-duration: 10s;
         }
-
         .snowflake:nth-child(even) {
             font-size: 2rem;
             animation-duration: 7s;
@@ -137,11 +133,15 @@
         <div class="wishlist-buttons">
             <a href="electronics.html">Electronics</a>
             <a href="essentials.html">Essentials</a>
+            <a href="schoolwork.html">Schoolwork</a>
+            <a href="clothes.html">Clothes</a>
         </div>
     </div>
+
     <button class="hide-all-btn" id="hide-all-btn">🎄 <span>Click me!</span></button>
     <button id="playButton">🎵 <span>Click me!</span></button>
-    <audio id="audio" src="images/30 Minutes of Traditional Christmas Music with Beautiful Christmas Tree and Fireplace Background_4.mp3"></audio>
+    <audio id="audio" src="images/30 Minutes of Traditional Christmas Music with Beautiful Christmas Tree and Fireplace Background_4.mp3"></audio> <!-- Add your audio file URL -->
+
     <script>
         const audio = document.getElementById('audio');
         const playButton = document.getElementById('playButton');
@@ -156,20 +156,27 @@
         });
     </script>
     <script>
+
         const createSnowflake = () => {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
+            
+        
             snowflake.style.left = `${Math.random() * 100}vw`;
-            snowflake.style.animationDuration = `${Math.random() * 15 + 10}s`;
-            snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`;
-            snowflake.style.fontSize = `${Math.random() * 2 + 0.5}rem`;
+            snowflake.style.animationDuration = `${Math.random() * 15 + 10}s`; 
+            snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`; 
+            snowflake.style.fontSize = `${Math.random() * 2 + 0.5}rem`; 
+            
             const snowflakeChars = ['❄', '❆'];
             snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+            
             document.body.appendChild(snowflake);
+        
             snowflake.addEventListener('animationend', () => {
                 snowflake.remove();
             });
         };
+        
         const snowflakeStyle = document.createElement('style');
         snowflakeStyle.innerHTML = `
         .snowflake {
@@ -182,6 +189,7 @@
             z-index: 9999;
             animation: fall linear forwards;
         }
+        
         @keyframes fall {
             to {
                 transform: 
@@ -192,7 +200,8 @@
         }
         `;
         document.head.appendChild(snowflakeStyle);
+        
         setInterval(createSnowflake, 100);
-    </script>
+            </script>
 </body>
 </html>

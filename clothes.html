@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacks' Essentials</title>
+    <style>
+        :root {
+            --primary-color: #B22222;
+            --secondary-color: #228B22;
+            --accent-color: #FFD700;
+            --background-color: #F0F4F8;
+            --text-color: #1A237E;
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Mountains of Christmas', 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-image: url('images/e9a3c43d6936aa3adae37bd9d07d2be1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+        }
+        h1 {
+            color: firebrick;
+            text-align: center;
+            font-size: 54px;
+            transition: margin-left 0.3s;
+        }
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #f1f1f1;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            transition: width 0.3s;
+        }
+        .sidebar.retracted {
+            width: 0;
+            padding: 0;
+        }
+        .sidebar h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #d70000;
+            margin-bottom: 20px;
+        }
+        .sidebar div {
+            margin-bottom: 20px;
+        }
+        .sidebar label {
+            font-size: 18px;
+            color: #006400;
+        }
+        .sidebar select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .sidebar.retracted div,
+        .sidebar.retracted h2 {
+            display: none;
+        }
+        header {
+            padding: 20px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            margin-left: 270px;
+            transition: margin-left 0.3s;
+        }
+        header.centered h1 {
+            margin-left: 20px;
+        }
+        .container {
+            margin-left: 270px;
+            margin-right: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            transition: margin-left 0.3s;
+        }
+        .container.centered {
+            margin-left: 20px;
+        }
+        .item {
+            width: 30%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            transition: background-color 0.3s, transform 0.3s;
+            overflow: hidden;
+        }
+        .item:hover {
+            transform: translateY(-5px);
+        }
+        .item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .item h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #d70000;
+        }
+        .item p {
+            font-size: 14px;
+            color: #006400;
+        }
+        #playButton {
+            position: fixed;
+            bottom: 130px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #playButton:hover {
+            background-color: #006400;
+        }
+        .retract-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        .retract-btn:hover {
+            background-color: #444;
+        }
+        .hide-all-btn {
+            position: fixed;
+            bottom: 200px;
+            left: 20px;
+            font-size: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hide-all-btn span {
+            font-size: 20px;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            color: white;
+            font-size: 1rem;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+        .snowflake:nth-child(odd) {
+            font-size: 1.5rem;
+            animation-duration: 10s;
+        }
+        .snowflake:nth-child(even) {
+            font-size: 2rem;
+            animation-duration: 7s;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio" preload="auto" loop>
+        <source src="images/30 Minutes of Traditional Christmas Music with Beautiful Christmas Tree and Fireplace Background_4.mp3" type="audio/mp3">
+    </audio>
+    <div class="sidebar" id="sidebar">
+        <h2>Filter</h2>
+        <div>
+            <label for="price-filter">Price Range:</label>
+            <select id="price-filter">
+                <option value="all">All</option>
+                <option value="0-10">Under $10</option>
+                <option value="10-20">$10 - $20</option>
+                <option value="20-50">$20 - $50</option>
+                <option value="50-100">$50 - $100</option>
+                <option value="100+">$100+</option>
+            </select>
+        </div>
+        <div>
+            <label for="clothing-type">Clothing Type:</label>
+            <select id="clothing-type">
+                <option value="all">All</option>
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="shoe">Shoe</option>
+            </select>
+        </div>
+        <div>
+            <label for="wishlist-filter">Wishlist:</label>
+            <select id="wishlist-filter">
+                <option value="all">All</option>
+                <option value="wanted">Wanted</option>
+                <option value="not-wanted">Not Wanted</option>
+            </select>
+        </div>
+    </div>
+    <button class="retract-btn" id="retract-btn">☰</button>
+    <button class="hide-all-btn" id="hide-all-btn">
+        🎄 <span>Click me!</span>
+    </button>
+    <button id="playButton">
+        🎵 <span>Click me!</span> 
+    </button>
+    </div>
+</div>
+    <div>
+        <header>
+            <h1>Clothes</h1>
+        </header>
+        <div class="container" id="item-container">
+            
+            <!-- Item 1 -->
+
+            <div class="item" data-price="115.00" data-wanted="false" bottom = "false" top = 'false' shoe = 'true'>
+                <a href="https://www.nike.com/t/air-force-1-07-mens-shoes-jBrhbr/CW2288-111" target="_blank">
+                    <img src="images/AIR+FORCE+1+'07.png" alt="Forces">
+                </a>
+                <h3>Forces (All White)</h3>
+                <p>$115.00</p>
+            </div>
+
+            <!-- Item 2 -->
+
+            <div class="item" data-price="89.95" data-wanted="true" bottom = "false" top = 'false' shoe = 'true'>
+                <a href="https://www.colehaan.com/mens-grand-ambition-postman-oxfords/C39918.html" target="_blank">
+                    <img src="images/GRAND AMB POSTMN OX_e_E_C39918.jpg" alt="Cole Haan Dress Shoes">
+                </a>
+                <h3>Dress Shoes</h3>
+                <p>$89.95</p>
+            </div>
+
+            <!-- Item 3 -->
+
+            <div class="item" data-price="69.99" data-wanted="false" bottom = "false" top = 'true' shoe = 'false'>
+                <a href="https://www.nflshop.com/atlanta-falcons/mens-atlanta-falcons-fanatics-black-defender-pullover-hoodie/t-36373476+p-461155751875123+z-9-3339586723?_ref=p-SRP:m-GRID:i-r1c0:po-3" target="_blank">
+                    <img src="images/mens-fanatics-black-atlanta-falcons-defender-pullover-hoodie_ss5_p-200878890+pv-1+u-2ksiqlsfinnwcdrqocsv+v-lc9eemfkvdrabrfms6ad.avif" alt="Falcons Hoodie">
+                </a>
+                <h3>Falcons Hoodie</h3>
+                <p>$69.99</p>
+            </div>
+
+            <!-- Item 4 -->
+
+            <div class="item" data-price="35.99" data-wanted="true" bottom = "false" top = 'true' shoe = 'false'>
+                <a href="https://www.amazon.com/Marvel-Amazing-Spider-Man-Vintage-Pullover/dp/B07QKPG48D/ref=sr_1_24?dib=eyJ2IjoiMSJ9.zgreOAR41LdFt2uEUZMcz2GLgIMAFLs4m7ncR3lFX6S1YX54o3xvsBBpptjN_j6qH9Hmz8SpgKDEOXzJWhaOZBFLJRQudySm0X0JY-puHRb8TbIZUx0TfAA5vtSBHyBwbilpXA7LrqC8dX8IYsl9qvhv-hhPhH32R9kFEookBOQ4xypg-CU4WHJa__LNck2PcVja6XHP84uIAloHn3E72IjoTsxn2_bWZn9LGauiuV6Z15ESJGH6LWyAZCVUJosW_URBmutgigzgdMrbrfxSX2uTQ3I9QLJBWNEN0gSvzNQ.-5qpXNXymXng2XLjwumRIymIfSV1DXtdtmzysAH79A4&dib_tag=se&keywords=vintage+hoodies&qid=1733100740&sr=8-24" target="_blank">
+                    <img src="images/B1mEhjGJ2nL._CLa_2140,2000_B1yRG2QOcVL.png_0,0,2140,2000+0.0,0.0,2140.0,2000.0_AC_SX679_.jpg" alt="Spiderman Hoodie">
+                </a>
+                <h3>Spiderman Hoodie</h3>
+                <p>$35.99</p>
+            </div>
+            
+            <!-- Item 5 -->
+            
+            <div class="item" data-price="28.00" data-wanted="false" bottom = "false" top = 'false' shoe = 'true'>
+                <a href="https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-100" target="_blank">
+                    <img src="images/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png" alt="Nike Socks">
+                </a>
+                <h3>Nike Socks</h3>
+                <p>$28.00</p>
+            </div>
+
+            <!-- item 6 -->
+             
+            <div class="item" data-price="14.00" data-wanted="true" bottom = "true" top = 'false' shoe = 'false'>
+                <a href="https://www.target.com/p/men-s-fleece-jogger-pants---goodfellow---co--brown-l--no-aasa/-/A-90781415?form=MG0AV3&preselect=90781411" target="_blank">
+                    <img src="images/GUEST_701269bb-cfe1-4927-9dca-89743875e0b8.webp" alt="Sweatpants">
+                </a>
+                <h3>Sweatpants</h3>
+                <p>$14.00</p>
+            </div>
+        </div>
+    <script>
+
+const createSnowflake = () => {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    
+
+    snowflake.style.left = `${Math.random() * 100}vw`;
+    snowflake.style.animationDuration = `${Math.random() * 15 + 10}s`; 
+    snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`; 
+    snowflake.style.fontSize = `${Math.random() * 2 + 0.5}rem`; 
+    
+    const snowflakeChars = ['❄', '❆'];
+    snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+    
+    document.body.appendChild(snowflake);
+
+    snowflake.addEventListener('animationend', () => {
+        snowflake.remove();
+    });
+};
+
+const snowflakeStyle = document.createElement('style');
+snowflakeStyle.innerHTML = `
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: 
+            translateY(110vh) 
+            translateX(100px) 
+            rotate(720deg);
+    }
+}
+`;
+document.head.appendChild(snowflakeStyle);
+
+setInterval(createSnowflake, 100);
+    </script>
+    <script>
+        document.getElementById("price-filter").addEventListener("change", filterItems);
+document.getElementById("sort-filter").addEventListener("change", sortItems);
+document.getElementById("wishlist-filter").addEventListener("change", filterItems);
+document.getElementById("clothing-type").addEventListener("change", filterItems);
+
+function filterItems() {
+    const priceFilter = document.getElementById("price-filter").value;
+    const wishlistFilter = document.getElementById("wishlist-filter").value;
+    const clothingTypeFilter = document.getElementById("clothing-type").value;
+    const items = document.querySelectorAll(".item");
+    
+    items.forEach(item => {
+        const price = parseFloat(item.getAttribute("data-price"));
+        const wanted = item.getAttribute("data-wanted") === "true";
+        const bottom = item.getAttribute("bottom") === "true";
+        const top = item.getAttribute("top") === "true";
+        const shoe = item.getAttribute("shoe") === "true";
+        
+        let priceMatch = true;
+        let clothingTypeMatch = true;
+        let wishlistMatch = true;
+        
+        if (priceFilter !== "all") {
+            const [min, max] = priceFilter.split("-").map(Number);
+            priceMatch = price >= min && price <= max;
+        }
+        
+        if (clothingTypeFilter !== "all") {
+            if (clothingTypeFilter === "bottom") clothingTypeMatch = bottom;
+            if (clothingTypeFilter === "top") clothingTypeMatch = top;
+            if (clothingTypeFilter === "shoe") clothingTypeMatch = shoe;
+        }
+        
+        if (wishlistFilter !== "all") {
+            wishlistMatch = (wishlistFilter === "wanted") ? wanted : !wanted;
+        }
+
+        if (priceMatch && clothingTypeMatch && wishlistMatch) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+function sortItems() {
+    const sortOrder = document.getElementById("sort-filter").value;
+    const container = document.getElementById("item-container");
+    const items = Array.from(container.children);
+    
+    items.sort((a, b) => {
+        const priceA = parseFloat(a.getAttribute("data-price"));
+        const priceB = parseFloat(b.getAttribute("data-price"));
+        
+        return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
+    });
+
+    items.forEach(item => container.appendChild(item));
+}
+    </script>
+    <script>
+        document.getElementById('retract-btn').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var header = document.querySelector('header');
+            var container = document.getElementById('item-container');
+            var filters = document.querySelectorAll('.sidebar div');  
+            var filterText = document.querySelector('.sidebar h2'); 
+
+            sidebar.classList.toggle('retracted');
+            container.classList.toggle('centered');
+            header.classList.toggle('centered');
+
+            if (sidebar.classList.contains('retracted')) {
+                header.style.marginLeft = '20px';
+                container.style.marginLeft = '20px';
+            } else {
+                header.style.marginLeft = '270px';
+                container.style.marginLeft = '270px';
+            }
+        });
+        </script>
+        <script>
+        document.getElementById('hide-all-btn').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var header = document.querySelector('header');
+            var container = document.getElementById('item-container');
+            var filters = document.querySelectorAll('.sidebar div');  
+            var filterText = document.querySelector('.sidebar h2'); 
+            var buttons = document.querySelectorAll('.retract-btn, .hide-all-btn'); 
+
+            sidebar.classList.add('hidden');
+            header.classList.add('hidden');
+            container.classList.add('hidden');
+            filters.forEach(function(filter) {
+                filter.classList.add('hidden');
+            });
+            filterText.classList.add('hidden');
+            buttons.forEach(function(button) {
+                button.classList.add('hidden'); 
+            });
+        });
+    </script>
+    <script>
+        const audio = document.getElementById('audio');
+        const playButton = document.getElementById('playButton');
+
+
+        playButton.addEventListener('click', function() {
+            audio.play();
+            playButton.style.display = 'none';  
+        });
+
+        document.body.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') {
+                event.preventDefault();  
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
