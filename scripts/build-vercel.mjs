@@ -22,7 +22,7 @@ for (const path of pagePaths) {
   writeFileSync(file, html);
 }
 
-for (const name of ['style.css', 'wishlist.js', ...[...imagePaths].map(path => path.slice(1))]) {
+for (const name of ['style.css', 'wishlist.js', 'favicon.svg', ...[...imagePaths].map(path => path.slice(1))]) {
   const destination = join(output, name);
   mkdirSync(dirname(destination), { recursive: true });
   copyFileSync(join(root, name), destination);

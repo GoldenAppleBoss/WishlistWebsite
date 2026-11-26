@@ -8,7 +8,7 @@ import { HttpError, normalizeDisplayName, passwordHash, readPasswordKey, tokenHa
 import { wishlists, itemIds, imagePaths, pagePaths } from './lib/catalogue.mjs';
 
 const root = import.meta.dirname;
-const assets = new Set(['/style.css', '/wishlist.js', ...imagePaths]);
+const assets = new Set(['/style.css', '/wishlist.js', '/favicon.svg', ...imagePaths]);
 const pages = new Set(['/index.html', ...pagePaths]);
 
 const production = process.env.NODE_ENV === 'production';
@@ -255,7 +255,8 @@ const contentTypes = {
   css: 'text/css; charset=utf-8',
   js: 'text/javascript; charset=utf-8',
   webp: 'image/webp',
-  jpg: 'image/jpeg'
+  jpg: 'image/jpeg',
+  svg: 'image/svg+xml'
 };
 
 const server = createServer(async (req, res) => {
