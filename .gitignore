@@ -1,0 +1,9 @@
+/.wishlist-data/
+/.env
+/.env.*
+/node_modules/
+/.npm-cache/
+/.vercel/
+/.vercel-qa/
+/dist/
+/.sites-hosting/

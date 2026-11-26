@@ -1,0 +1,14 @@
+{
+  "name": "wishlist-website",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "node --experimental-sqlite server.mjs",
+    "build": "node scripts/build-vercel.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.1"
+  }
+}
