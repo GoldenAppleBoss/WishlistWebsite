@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f3">
+  <title>Electronics · Jack’s Christmas Wishlist</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/wishlist.js" defer></script>
+</head>
+<body class="electronics seasonal">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12m0-12H8.5A2.5 2.5 0 1 1 11 5.5L12 8Zm0 0h3.5A2.5 2.5 0 1 0 13 5.5L12 8Z"/></svg><span>Jack’s Wishlists</span></a>
+      <nav class="primary-nav" aria-label="Occasions"><a href="/christmas">Christmas</a></nav>
+      <div class="utilities">
+        <button id="music-toggle" class="utility" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><ellipse cx="6.5" cy="18" rx="2.5" ry="2"/><ellipse cx="17.5" cy="16" rx="2.5" ry="2"/></svg><span>Play music</span></button>
+        <button id="scene-toggle" class="utility" type="button" aria-pressed="false" aria-controls="main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 4 6h-2l4 5h-3l5 5H4l5-5H6l4-5H8l4-6Zm0 16v3"/></svg><span>Fireplace</span></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <header class="listing-heading">
+      <a class="back-link" href="/christmas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>Christmas wishlist</a>
+      <h1>Electronics</h1>
+      <nav class="category-nav" aria-label="Wishlist categories">
+        <a href="/electronics" aria-current="page">Electronics</a>
+        <a href="/essentials">Essentials</a>
+        <a href="/schoolwork">Schoolwork</a>
+        <a href="/clothes">Clothes</a>
+      </nav>
+    </header>
+    <form class="filters" id="filters" aria-label="Filter and sort items">
+      <div class="filter-toolbar">
+        <button class="filter-toggle" type="button" aria-expanded="true" aria-controls="filter-options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M6 12h12m-9 6h6"/></svg><span>Filters</span></button>
+          <div class="filter-field">
+            <label for="filter-sort">Sort by</label>
+            <select id="filter-sort" name="sort">
+                <option value="desc">Price: high to low</option>
+                <option value="asc">Price: low to high</option>
+            </select>
+          </div>
+      </div>
+      <div class="filter-options" id="filter-options">
+          <div class="filter-field">
+            <label for="filter-price">Price</label>
+            <select id="filter-price" name="price">
+                <option value="all">Any price</option>
+                <option value="0-21">Under $21</option>
+                <option value="21-51">$21 to under $51</option>
+                <option value="51-101">$51 to under $101</option>
+                <option value="101-201">$101 to under $201</option>
+                <option value="201-501">$201 to under $501</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-priority">Priority</label>
+            <select id="filter-priority" name="priority">
+                <option value="all">All items</option>
+                <option value="true">Wanted</option>
+            </select>
+          </div>
+        <button type="reset" class="reset">Clear filters</button>
+      </div>
+    </form>
+    <p class="results" id="results" role="status">12 items</p>
+    <div id="products" class="products">
+      <article class="product" data-price="401.36" data-wanted="true" data-type="">
+        <a class="product-link" href="https://store.creality.com/products/k1-3d-printer" target="_blank" rel="noopener" aria-label="The Big Kahuna (opens in a new tab)"><div class="product-image"><img src="/images/electronics-1.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>The Big Kahuna</h2><p class="price">$401.36</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="249.99" data-wanted="true" data-type="">
+        <a class="product-link" href="https://www.amazon.com/gp/product/B0C8ZJKPWC?tag=rtings-mn-r-amazon-20&amp;ie=UTF8&amp;asc_campaign=&amp;asc_source=&amp;asc_refurl=https%3A%2F%2Fwww.rtings.com%2Fmonitor%2Freviews%2Fbest%2Fgaming-monitors-under-300%3Fform%3DMG0AV3&amp;th=1" target="_blank" rel="noopener" aria-label="Monitor (opens in a new tab)"><div class="product-image"><img src="/images/electronics-10.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Monitor</h2><p class="price">$249.99</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="39.99" data-wanted="false" data-type="">
+        <a class="product-link" href="https://store.creality.com/products/2-pack-hyper-1-75mm-pla-3d-printing-filament-1kg" target="_blank" rel="noopener" aria-label="Extra 3D Printing Filament (opens in a new tab)"><div class="product-image"><img src="/images/electronics-2.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Extra 3D Printing Filament</h2><p class="price">$39.99</p></div></a>
+        
+      </article>
+      <article class="product" data-price="39.99" data-wanted="true" data-type="">
+        <a class="product-link" href="https://www.amazon.com/YIHUA-Soldering-194%C2%BAF-896%C2%BAF-Adjustable-Calibration/dp/B082F1WKP9/ref=asc_df_B082F1WKP9?mcid=64cc6e5b6be139d5963a584e199c089e&amp;tag=hyprod-20&amp;linkCode=df0&amp;hvadid=693071814610&amp;hvpos=&amp;hvnetw=g&amp;hvrand=1155790417567642101&amp;hvpone=&amp;hvptwo=&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9010769&amp;hvtargid=pla-902673393028&amp;th=1" target="_blank" rel="noopener" aria-label="Soldering Iron (opens in a new tab)"><div class="product-image"><img src="/images/electronics-3.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Soldering Iron</h2><p class="price">$39.99</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="29.99" data-wanted="false" data-type="">
+        <a class="product-link" href="https://www.amazon.com/Klein-Tools-MM325-Multimeter-Manual-Ranging/dp/B0B57L9FNL" target="_blank" rel="noopener" aria-label="Multimeter (opens in a new tab)"><div class="product-image"><img src="/images/electronics-4.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Multimeter</h2><p class="price">$29.99</p></div></a>
+        
+      </article>
+      <article class="product" data-price="21.99" data-wanted="false" data-type="">
+        <a class="product-link" href="https://www.amazon.com/gp/aw/d/B0C8V88Z9D" target="_blank" rel="noopener" aria-label="Arduino Uno (opens in a new tab)"><div class="product-image"><img src="/images/electronics-5.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Arduino Uno</h2><p class="price">$21.99</p></div></a>
+        
+      </article>
+      <article class="product" data-price="15.99" data-wanted="true" data-type="">
+        <a class="product-link" href="https://www.superbrightleds.com/catalog/product/view/id/226949" target="_blank" rel="noopener" aria-label="LED Power Supply (20W) (opens in a new tab)"><div class="product-image"><img src="/images/electronics-6.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>LED Power Supply (20W)</h2><p class="price">$15.99</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="13.99" data-wanted="true" data-type="">
+        <a class="product-link" href="https://www.amazon.com/BOJACK-General-Purpose-Transistors-Assortment/dp/B07T5166B8/ref=sr_1_3?crid=1NUMVDKFVON5F&amp;dib=eyJ2IjoiMSJ9.298U5yK3PHjJiqmjkC3IeKw0N9VG0DzhOiM0R_AZqPn61OnR4cwANxA_u--GEoaCnbfJdgCQ8WjrSAKPmVp_LilRVsrC3rQXF3hKwyp7-Oydh47stTYnZL3kz2o-_Y1Rft-KnH4i-luPl8Jn4H-EYNOrWyTjEG3LmXN6uMDdmvu7iQINHX-hhbK2i6pQ2P90agy4RFb3EGZhH8M9OY6BfpsMWG0J0IrnVfAlFvY5W-g.JvZE0f3zgzvIIhS_wVgNpHfMglOfBH8lzwHcL2NKyiQ&amp;dib_tag=se&amp;keywords=breadboard+transistors&amp;qid=1732902040&amp;sprefix=breadboard+transistors%2Caps%2C96&amp;sr=8-3" target="_blank" rel="noopener" aria-label="Transistors (opens in a new tab)"><div class="product-image"><img src="/images/electronics-7.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Transistors</h2><p class="price">$13.99</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="10.99" data-wanted="true" data-type="">
+        <a class="product-link" href="https://www.superbrightleds.com/5050-smd-led-rgb-surface-mount-led-with-120-degree-viewing-angle-5050-smd-led" target="_blank" rel="noopener" aria-label="Solderable LEDs (opens in a new tab)"><div class="product-image"><img src="/images/electronics-8.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Solderable LEDs</h2><p class="price">$10.99</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="9.99" data-wanted="false" data-type="">
+        <a class="product-link" href="https://www.amazon.com/Extension-Protector-Widely-Extender-Essentials/dp/B0BVZCLW3R/ref=asc_df_B0BVZCLW3R?mcid=81c08c62fa00309383a900b25de811a7&amp;tag=hyprod-20&amp;linkCode=df0&amp;hvadid=693569091832&amp;hvpos=&amp;hvnetw=g&amp;hvrand=5264856269509736518&amp;hvpone=&amp;hvptwo=&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9010769&amp;hvtargid=pla-2204701141572&amp;th=1" target="_blank" rel="noopener" aria-label="All in One Extension Block (opens in a new tab)"><div class="product-image"><img src="/images/electronics-12.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>All in One Extension Block</h2><p class="price">$9.99</p></div></a>
+        
+      </article>
+      <article class="product" data-price="7.99" data-wanted="false" data-type="">
+        <a class="product-link" href="https://www.amazon.com/Dia0-032in-0-11lb-Precision-Electronics-Soldering/dp/B07Q167J98/ref=sr_1_5?crid=3OZXGZJ7QVHFC&amp;dib=eyJ2IjoiMSJ9.ABcrlSd0nHVpgKwVpSxP1Fie1gNKQZvzInTTWD7jXIkmaGhaehtuZ-dFDAJWt5HvBiSsCVOYZqlof8bau_jrtpAMCEb1FBxffqsXCh2UzR2WQ0XOLUdWwC0iLqT2sdH5xU8Gbxddyf-zDFwMA50mE8L8VZ3PdjX2_PD4IFB35T9CU9WBDqMFq_19f7org6Dn_EUMOwEk815fAYvtPtqKS_llqReM4J0G-ltDVn9tuf-AXgOsUTL-bKgmRejhJByb03z0_Q0-nxOVVOevdVxoUEvt7fR8zSx5FHpNeaOtafA.ZRoDangOd57PHgcLJKJPk-gIYJLlILQ4iu1rVliUC68&amp;dib_tag=se&amp;keywords=lead+free+solder+wire&amp;qid=1732902816&amp;sprefix=lead+free+solder+wire%2Caps%2C106&amp;sr=8-5" target="_blank" rel="noopener" aria-label="Extra Solder Wire (opens in a new tab)"><div class="product-image"><img src="/images/electronics-9.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Extra Solder Wire</h2><p class="price">$7.99</p></div></a>
+        
+      </article>
+      <article class="product" data-price="7.22" data-wanted="false" data-type="">
+        <a class="product-link" href="https://www.amazon.com/s?k=1m+certified+8K+HDMI+cable" target="_blank" rel="noopener" aria-label="HDMI Cable (1m), search Amazon (opens in a new tab)"><div class="product-image"><img src="/images/electronics-11.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>HDMI Cable (1m)</h2><p class="price">$7.22</p></div></a>
+        
+      </article>
+    </div>
+    <div id="empty" class="empty" hidden>
+      <p>No items match these filters.</p>
+      <button type="reset" form="filters" class="reset">Clear filters</button>
+    </div>
+  </main>
+  <audio id="holiday-music" preload="none" loop src="/images/christmas-music.mp3"></audio>
+  <div id="fireplace" class="fireplace" hidden aria-hidden="true"><div class="snow"></div></div>
+  <p id="audio-status" class="audio-status" role="status" hidden></p>
+</body>
+</html>

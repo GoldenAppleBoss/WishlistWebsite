@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f3">
+  <title>Clothes · Jack’s Christmas Wishlist</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/wishlist.js" defer></script>
+</head>
+<body class="clothes seasonal">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12m0-12H8.5A2.5 2.5 0 1 1 11 5.5L12 8Zm0 0h3.5A2.5 2.5 0 1 0 13 5.5L12 8Z"/></svg><span>Jack’s Wishlists</span></a>
+      <nav class="primary-nav" aria-label="Occasions"><a href="/christmas">Christmas</a></nav>
+      <div class="utilities">
+        <button id="music-toggle" class="utility" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><ellipse cx="6.5" cy="18" rx="2.5" ry="2"/><ellipse cx="17.5" cy="16" rx="2.5" ry="2"/></svg><span>Play music</span></button>
+        <button id="scene-toggle" class="utility" type="button" aria-pressed="false" aria-controls="main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 4 6h-2l4 5h-3l5 5H4l5-5H6l4-5H8l4-6Zm0 16v3"/></svg><span>Fireplace</span></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <header class="listing-heading">
+      <a class="back-link" href="/christmas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>Christmas wishlist</a>
+      <h1>Clothes</h1>
+      <nav class="category-nav" aria-label="Wishlist categories">
+        <a href="/electronics">Electronics</a>
+        <a href="/essentials">Essentials</a>
+        <a href="/schoolwork">Schoolwork</a>
+        <a href="/clothes" aria-current="page">Clothes</a>
+      </nav>
+    </header>
+    <form class="filters" id="filters" aria-label="Filter and sort items">
+      <div class="filter-toolbar">
+        <button class="filter-toggle" type="button" aria-expanded="true" aria-controls="filter-options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M6 12h12m-9 6h6"/></svg><span>Filters</span></button>
+          <div class="filter-field">
+            <label for="filter-sort">Sort by</label>
+            <select id="filter-sort" name="sort">
+                <option value="desc">Price: high to low</option>
+                <option value="asc">Price: low to high</option>
+            </select>
+          </div>
+      </div>
+      <div class="filter-options" id="filter-options">
+          <div class="filter-field">
+            <label for="filter-price">Price</label>
+            <select id="filter-price" name="price">
+                <option value="all">Any price</option>
+                <option value="0-10">Under $10</option>
+                <option value="10-20">$10 to under $20</option>
+                <option value="20-50">$20 to under $50</option>
+                <option value="50-100">$50 to under $100</option>
+                <option value="100+">$100 and up</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-priority">Priority</label>
+            <select id="filter-priority" name="priority">
+                <option value="all">All items</option>
+                <option value="true">Wanted</option>
+                <option value="false">Not wanted</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-type">Type</label>
+            <select id="filter-type" name="type">
+                <option value="all">All types</option>
+                <option value="top">Tops</option>
+                <option value="bottom">Bottoms</option>
+                <option value="shoe">Shoes</option>
+            </select>
+          </div>
+        <button type="reset" class="reset">Clear filters</button>
+      </div>
+    </form>
+    <p class="results" id="results" role="status">6 items</p>
+    <div id="products" class="products">
+      <article class="product" data-price="115.00" data-wanted="false" data-type="shoe">
+        <a class="product-link" href="https://www.nike.com/t/air-force-1-07-mens-shoes-jBrhbr/CW2288-111" target="_blank" rel="noopener" aria-label="Forces (All White) (opens in a new tab)"><div class="product-image"><img src="/images/clothes-1.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Forces (All White)</h2><p class="price">$115.00</p></div></a>
+        
+      </article>
+      <article class="product" data-price="89.95" data-wanted="true" data-type="shoe">
+        <a class="product-link" href="https://www.colehaan.com/mens-grand-ambition-postman-oxfords/C39918.html" target="_blank" rel="noopener" aria-label="Dress Shoes (opens in a new tab)"><div class="product-image"><img src="/images/clothes-2.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Dress Shoes</h2><p class="price">$89.95</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="69.99" data-wanted="false" data-type="top">
+        <a class="product-link" href="https://www.nflshop.com/atlanta-falcons/mens-atlanta-falcons-fanatics-black-defender-pullover-hoodie/t-36373476+p-461155751875123+z-9-3339586723?_ref=p-SRP:m-GRID:i-r1c0:po-3" target="_blank" rel="noopener" aria-label="Falcons Hoodie (opens in a new tab)"><div class="product-image"><img src="/images/clothes-3.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Falcons Hoodie</h2><p class="price">$69.99</p></div></a>
+        
+      </article>
+      <article class="product" data-price="35.99" data-wanted="true" data-type="top">
+        <a class="product-link" href="https://www.amazon.com/Marvel-Amazing-Spider-Man-Vintage-Pullover/dp/B07QKPG48D/ref=sr_1_24?dib=eyJ2IjoiMSJ9.zgreOAR41LdFt2uEUZMcz2GLgIMAFLs4m7ncR3lFX6S1YX54o3xvsBBpptjN_j6qH9Hmz8SpgKDEOXzJWhaOZBFLJRQudySm0X0JY-puHRb8TbIZUx0TfAA5vtSBHyBwbilpXA7LrqC8dX8IYsl9qvhv-hhPhH32R9kFEookBOQ4xypg-CU4WHJa__LNck2PcVja6XHP84uIAloHn3E72IjoTsxn2_bWZn9LGauiuV6Z15ESJGH6LWyAZCVUJosW_URBmutgigzgdMrbrfxSX2uTQ3I9QLJBWNEN0gSvzNQ.-5qpXNXymXng2XLjwumRIymIfSV1DXtdtmzysAH79A4&amp;dib_tag=se&amp;keywords=vintage+hoodies&amp;qid=1733100740&amp;sr=8-24" target="_blank" rel="noopener" aria-label="Spiderman Hoodie (opens in a new tab)"><div class="product-image"><img src="/images/clothes-4.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Spiderman Hoodie</h2><p class="price">$35.99</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+      <article class="product" data-price="28.00" data-wanted="false" data-type="shoe">
+        <a class="product-link" href="https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-100" target="_blank" rel="noopener" aria-label="Nike Socks (opens in a new tab)"><div class="product-image"><img src="/images/clothes-5.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Nike Socks</h2><p class="price">$28.00</p></div></a>
+        
+      </article>
+      <article class="product" data-price="14.00" data-wanted="true" data-type="bottom">
+        <a class="product-link" href="https://www.target.com/p/men-s-fleece-jogger-pants---goodfellow---co--brown-l--no-aasa/-/A-90781415?form=MG0AV3&amp;preselect=90781411" target="_blank" rel="noopener" aria-label="Sweatpants (opens in a new tab)"><div class="product-image"><img src="/images/clothes-6.webp" alt="" loading="lazy" width="320" height="240"></div><div class="product-meta"><h2>Sweatpants</h2><p class="price">$14.00</p></div></a>
+        <span class="priority"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>Wanted</span>
+      </article>
+    </div>
+    <div id="empty" class="empty" hidden>
+      <p>No items match these filters.</p>
+      <button type="reset" form="filters" class="reset">Clear filters</button>
+    </div>
+  </main>
+  <audio id="holiday-music" preload="none" loop src="/images/christmas-music.mp3"></audio>
+  <div id="fireplace" class="fireplace" hidden aria-hidden="true"><div class="snow"></div></div>
+  <p id="audio-status" class="audio-status" role="status" hidden></p>
+</body>
+</html>
