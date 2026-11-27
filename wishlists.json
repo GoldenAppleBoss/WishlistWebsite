@@ -22,7 +22,8 @@
             "price": 699.99,
             "merchant": "Micro Center",
             "url": "https://www.microcenter.com/product/5007508/amd-ryzen-7-7800x3d,-asus-b650e-max-gaming-wifi-am5,-gskill-flare-x5-series-32gb-ddr5-6000-kit,-computer-build-bundle",
-            "notes": "Top priority. First purchase for the PC build. GPU and remaining parts planned for birthday. G.Skill Flare X5 DDR5-6000. In-store pickup only."
+            "notes": "Top priority. First purchase for the PC build. GPU and remaining parts planned for birthday. G.Skill Flare X5 DDR5-6000. In-store pickup only. Photo shows the processor included in the bundle.",
+            "image": "/images/christmas-2026-9.webp"
           },
           {
             "id": "christmas-2026-16",
@@ -31,7 +32,8 @@
             "price": 135.99,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/AOC-Q27G41ZE-2560x1440-Compatible-Zero-Bright-Dot/dp/B0FF5HXGJK/ref=sr_1_4?crid=2HH00JYJX5AQO&dib=eyJ2IjoiMSJ9.XrPVQ2XXnJMbEId19-OWVxSGotjzZm1kIEuLifP6SA2umWkMNbm8zBDF2p1Lk9ooHHJF7RESbXlZVksMdP19gXRImIju5vN0Z_pfguy0_0m1I6mCXxtton1YaOoShL0JLxbAQuYy8uq9PFaowrE-v-nh8eUF9TSIrDOKCcWnSW_E8PhY86t8yIZp2NGMUZW-AcH4ftaH6r40D6eeeN39db94FNz1ws5YOECzqnU0Ub4.ha7pqfxpBBT0Is4JnOOEfD0GYDb_XX24UdotoJKlvdo&dib_tag=se&keywords=monitor&qid=1795741231&sprefix=monito%2Caps%2C162&sr=8-4",
-            "notes": "27\" 2560x1440 IPS, 240Hz native / 260Hz OC, 0.3ms MPRT, G-Sync Compatible, 3-Yr Zero-Bright-Dot warranty"
+            "notes": "27\" 2560x1440 IPS, 240Hz native / 260Hz OC, 0.3ms MPRT, G-Sync Compatible, 3-Yr Zero-Bright-Dot warranty",
+            "image": "/images/christmas-2026-16.webp"
           },
           {
             "id": "christmas-2026-31",
@@ -44,7 +46,8 @@
             "priceSource": {
               "label": "Price at AULA",
               "url": "https://www.aulagaming.com/products/aula-f75-pro"
-            }
+            },
+            "image": "/images/christmas-2026-31.webp"
           },
           {
             "id": "christmas-2026-44",
@@ -53,9 +56,11 @@
             "price": 17.49,
             "merchant": "LTT Store",
             "url": "https://www.lttstore.com/products/deskpad?snowball=PANGOLY640&variant=39449418989671",
-            "notes": "Square 11.8 × 11.8 in. size. Listed sale price before shipping."
+            "notes": "Square 11.8 × 11.8 in. size. Listed sale price before shipping.",
+            "image": "/images/christmas-2026-44.webp"
           }
-        ]
+        ],
+        "image": "/images/christmas-2026-16.webp"
       },
       {
         "id": "engineering-stuff",
@@ -69,7 +74,8 @@
             "merchant": "eBay",
             "url": "https://www.ebay.com/itm/960041283728?chn=ps&mkevt=1&mkcid=28&google_free_listing_action=view_item",
             "notes": "80 pcs, 12 values: IRF3205 (110A), IRFZ44N, RFP30N06LE (logic-level), 2N7000, IRF9540 PMOS, IRF640N/740/840 (200V-500V)",
-            "priceNote": "Spreadsheet price; the linked eBay price couldn't be rechecked."
+            "priceNote": "Spreadsheet price; the linked eBay price couldn't be rechecked.",
+            "image": "/images/christmas-2026-10.webp"
           },
           {
             "id": "christmas-2026-27",
@@ -78,13 +84,14 @@
             "price": 5.33,
             "merchant": "DigiKey",
             "url": "https://www.digikey.com/en/products/detail/seoul-semiconductor-inc/STW8T16C-Q0S0-EA/3934440",
-            "notes": "4000 K neutral white, 5050 SMD, cut tape. $0.533 each at 10 and $0.3885 each at 100.",
+            "notes": "4000 K neutral white, 5050 SMD, cut tape. $0.533 each at 10 and $0.3885 each at 100. Representative product photo from DigiKey.",
             "priceMax": 38.85,
             "quantity": "10–100",
             "priceSource": {
               "label": "DigiKey tiers via Alldatasheet",
               "url": "https://www.alldatasheet.com/distributor/view.jsp?Searchword=STW8T"
-            }
+            },
+            "image": "/images/christmas-2026-27.webp"
           },
           {
             "id": "christmas-2026-29",
@@ -97,7 +104,8 @@
             "priceSource": {
               "label": "Price at KAIWEETS",
               "url": "https://kaiweets.com/products/kws-105-5-in-1-wire-stripping"
-            }
+            },
+            "image": "/images/christmas-2026-29.webp"
           },
           {
             "id": "christmas-2026-30",
@@ -110,9 +118,11 @@
             "priceSource": {
               "label": "Price at Daitool",
               "url": "https://daitool.com/products/engineer-wire-stripper-for-ultrathin-wire-pa-14"
-            }
+            },
+            "image": "/images/christmas-2026-30.webp"
           }
-        ]
+        ],
+        "image": "/images/christmas-2026-29.webp"
       },
       {
         "id": "apparel",
@@ -125,7 +135,8 @@
             "price": 21,
             "merchant": "Belk",
             "url": "https://www.belk.com/p/nike-everyday-plus-cushioned-training-crew-socks---6-pack/0480043581030.html?feed=shopping",
-            "notes": "6-pack crew socks, Dri-FIT moisture-wicking, cushioned heel/forefoot, arch band"
+            "notes": "6-pack crew socks, Dri-FIT moisture-wicking, cushioned heel/forefoot, arch band",
+            "image": "/images/christmas-2026-11.webp"
           },
           {
             "id": "christmas-2026-14",
@@ -134,7 +145,8 @@
             "price": 31,
             "merchant": "Gap",
             "url": "https://www.gap.com/browse/product.do?pid=8816950223030&vid=1&tid=gpns000044#pdp-page-content",
-            "notes": "10 oz 100% cotton twill, loose straight leg (16.75\" opening), Size 30x30, Toasted Almond"
+            "notes": "10 oz 100% cotton twill, loose straight leg (16.75\" opening), Size 30x30, Toasted Almond",
+            "image": "/images/christmas-2026-14.webp"
           },
           {
             "id": "christmas-2026-15",
@@ -143,7 +155,8 @@
             "price": 68,
             "merchant": "Sølvera",
             "url": "https://solverafashion.com/en/products/essensio-bomberjakke?variant=55420484518270&utm_source=google&utm_medium=organic&utm_campaign=US&utm_content=Essensio%20%7C%20Bomberjakke&currency=USD&srsltid=AYCX9vKVR4epN1mCrqfrrucdSJYnROSW3LH_GYwi4TDpQpNEt2_rf-Z7Ow0",
-            "notes": "Cream zip-front bomber jacket, Size M, water-repellent, light lining, ribbed trim, sleeve pocket"
+            "notes": "Cream zip-front bomber jacket, Size M, water-repellent, light lining, ribbed trim, sleeve pocket",
+            "image": "/images/christmas-2026-15.webp"
           },
           {
             "id": "christmas-2026-20",
@@ -152,7 +165,8 @@
             "price": 24.99,
             "merchant": "Abercrombie & Fitch",
             "url": "https://www.abercrombie.com/shop/us/p/essential-baggy-open-hem-sweatpant-61980845?seq=24&source=googleshopping",
-            "notes": "softAF fleece, baggy-fit silhouette, 18.5\" open-hem leg opening, exterior drawcords, Size M"
+            "notes": "softAF fleece, baggy-fit silhouette, 18.5\" open-hem leg opening, exterior drawcords, Size M",
+            "image": "/images/christmas-2026-20.webp"
           },
           {
             "id": "christmas-2026-24",
@@ -166,7 +180,8 @@
               "label": "Walmart reference price",
               "url": "https://www.walmart.com/ip/188193592"
             },
-            "priceNote": "Black Heather is listed at this price; the medium variant price was not confirmed."
+            "priceNote": "Black Heather is listed at this price; the medium variant price was not confirmed.",
+            "image": "/images/christmas-2026-24.webp"
           },
           {
             "id": "christmas-2026-26",
@@ -175,7 +190,9 @@
             "price": null,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/B0GX7Q4VBY?th=1",
-            "priceNote": "The exact linked listing's price couldn't be verified."
+            "priceNote": "The exact linked listing's price couldn't be verified.",
+            "image": "/images/christmas-2026-26.webp",
+            "notes": "Blue-light-blocking glasses for screen use. Photo shows a representative Livho pair."
           },
           {
             "id": "christmas-2026-28",
@@ -184,7 +201,8 @@
             "price": 26.99,
             "merchant": "H&M",
             "url": "https://www2.hm.com/en_us/productpage.1302372003.html",
-            "notes": "Light gray melange, wide leg, open hem, drawstring waist"
+            "notes": "Light gray melange, wide leg, open hem, drawstring waist",
+            "image": "/images/christmas-2026-28.webp"
           },
           {
             "id": "christmas-2026-32",
@@ -193,7 +211,8 @@
             "price": 95,
             "merchant": "Quince",
             "url": "https://www.quince.com/mens/italian-leather-%26-suede-trainer-sneaker?color=white&size=10.5",
-            "notes": "White, men’s US 10.5"
+            "notes": "White, men’s US 10.5",
+            "image": "/images/christmas-2026-32.webp"
           },
           {
             "id": "christmas-2026-34",
@@ -202,7 +221,8 @@
             "price": 125,
             "merchant": "The North Face",
             "url": "https://www.thenorthface.com/en-us/p/mens/mens-jackets-and-vests/mens-insulated-and-down-300771/mens-frost-fall-jacket-NF0A8DNY?color=JK3",
-            "notes": "Size unspecified. Listed sale price."
+            "notes": "Size unspecified. Listed sale price.",
+            "image": "/images/christmas-2026-34.webp"
           },
           {
             "id": "christmas-2026-41",
@@ -211,7 +231,8 @@
             "price": 20.98,
             "merchant": "Hanes",
             "url": "https://www.hanes.com/products/hanes-classic-mens-white-crew-neck-t-shirt-p6/7870w6",
-            "notes": "100% ringspun cotton. Size unspecified."
+            "notes": "100% ringspun cotton. Size unspecified.",
+            "image": "/images/christmas-2026-41.webp"
           },
           {
             "id": "christmas-2026-42",
@@ -220,7 +241,8 @@
             "price": 40,
             "merchant": "Banana Republic Factory",
             "url": "https://bananarepublicfactory.gapfactory.com/browse/product.do?pid=11755130410001",
-            "notes": "100% merino wool. Size unspecified."
+            "notes": "100% merino wool. Size unspecified.",
+            "image": "/images/christmas-2026-42.webp"
           },
           {
             "id": "christmas-2026-43",
@@ -230,9 +252,11 @@
             "merchant": "Etsy",
             "url": "https://www.etsy.com/listing/4313763405/jujutsu-kaisen-0-inspired-sterling",
             "notes": "Alloy or 925 sterling silver. Curb chain included.",
-            "priceNote": "Starting price; varies by chosen material and ring size."
+            "priceNote": "Starting price; varies by chosen material and ring size.",
+            "image": "/images/christmas-2026-43.webp"
           }
-        ]
+        ],
+        "image": "/images/christmas-2026-15.webp"
       },
       {
         "id": "toiletries",
@@ -246,7 +270,8 @@
             "merchant": "Jomashop.com",
             "url": "https://www.jomashop.com/paco-rabanne-one-million-elixir-eau-de-parfum-intense-spray-100ml-3-4oz-3349668600304.html?utm_source=google&utm_medium=organic&utm_campaign=surfaces-across-google",
             "notes": "3.4 oz (100 ml) Eau de Parfum Intense spray; apple, davana, Damask rose, tonka bean, vanilla",
-            "priceNote": "After the retailer coupon; $116.24 before coupon."
+            "priceNote": "After the retailer coupon; $116.24 before coupon.",
+            "image": "/images/christmas-2026-12.webp"
           },
           {
             "id": "christmas-2026-18",
@@ -255,9 +280,11 @@
             "price": 37,
             "merchant": "Uncrate",
             "url": "https://shop.uncrate.com/products/daily-revitalizing-mens-hair-care-routine?variant=42057430335553&country=US&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AYCX9vLvlSz9lqSwhIFZ_ITTwE-agk_9Y2EqvYZYy-zGGpile63UsHVYVhQ",
-            "notes": "Sulfate- and silicone-free shampoo & conditioner duo; aloe, vitamin E, hydrolyzed protein, pro-vitamin B5, tea tree oil"
+            "notes": "Sulfate- and silicone-free shampoo & conditioner duo; aloe, vitamin E, hydrolyzed protein, pro-vitamin B5, tea tree oil",
+            "image": "/images/christmas-2026-18.webp"
           }
-        ]
+        ],
+        "image": "/images/christmas-2026-12.webp"
       },
       {
         "id": "misc",
@@ -270,7 +297,8 @@
             "price": 189.99,
             "merchant": "Best Buy",
             "url": "https://www.bestbuy.com/product/insignia-4-5-cu-ft-mini-fridge-with-top-freezer-and-energy-star-certification-stainless-steel-look/J2FPJK9YVJ/sku/6634588?utm_source=feed",
-            "notes": "4.5 cu ft total (3.1 cu ft fridge + separate top freezer), 3 removable glass shelves for tall cans, ENERGY STAR"
+            "notes": "4.5 cu ft total (3.1 cu ft fridge + separate top freezer), 3 removable glass shelves for tall cans, ENERGY STAR",
+            "image": "/images/christmas-2026-13.webp"
           },
           {
             "id": "christmas-2026-17",
@@ -280,7 +308,8 @@
             "merchant": "Pickleball Paddles US",
             "url": "https://pickleballpaddlesus.com/products/selkirk-s1-pro-outdoor-pickleballs",
             "notes": "Seamless rotomolding, patented 38-hole pattern, 0.93 oz, USAPA approved, engineered for crack resistance and consistent flight",
-            "priceNote": "Price for the four-pack."
+            "priceNote": "Price for the four-pack.",
+            "image": "/images/christmas-2026-17.webp"
           },
           {
             "id": "christmas-2026-21",
@@ -289,7 +318,8 @@
             "price": 129,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/Apple-Cancellation-Wireless-Personalized-Translation/dp/B0HJB69GJL/ref=sr_1_3?dib=eyJ2IjoiMSJ9.-xfAPI1QMh2hLv0FJlnfd7TU6bYkuh-ksOYp_a77BnLg72KwpdVzTnSqV9qzFY_np9_04JccS3YGV0BkpmgBIKkbsJTbZlqfrnwxAtb0EFGZqcqvPwfhWsUDYQfX94raSRz0U1JOyv-E84S5n45rWjc4xt6ObUUS70sfHTxO9n_x-6rs7CY7OOFduDvXMq_SOH4SR9rQUtiU87zR2-ynSyK4BcrzJblLnZyNKLBsG5g.fxMEbGBFJboqRPtf9eNJk-QZpX5VDYxElfwk04yojjI&dib_tag=se&keywords=airpods%2B5&qid=1795743709&sr=8-3&th=1",
-            "notes": "Active Noise Cancellation, Personalized Spatial Audio, Live Translation, H2 chip, IP57, USB-C Charging Case"
+            "notes": "Active Noise Cancellation, Personalized Spatial Audio, Live Translation, H2 chip, IP57, USB-C Charging Case",
+            "image": "/images/christmas-2026-21.webp"
           },
           {
             "id": "christmas-2026-25",
@@ -302,7 +332,8 @@
             "priceSource": {
               "label": "Price at Target",
               "url": "https://www.target.com/p/-/A-82101454"
-            }
+            },
+            "image": "/images/christmas-2026-25.webp"
           },
           {
             "id": "christmas-2026-33",
@@ -311,7 +342,8 @@
             "price": 8.99,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/1974762017",
-            "notes": "My birthday volume."
+            "notes": "My birthday volume.",
+            "image": "/images/christmas-2026-33.webp"
           },
           {
             "id": "christmas-2026-35",
@@ -324,7 +356,8 @@
             "priceSource": {
               "label": "Amazon price tracked Nov 22",
               "url": "https://www.basketprice.com/p/2026-model-hdmi-dvd-player-for-tv-1080p-region-free-dvd"
-            }
+            },
+            "image": "/images/christmas-2026-35.webp"
           },
           {
             "id": "christmas-2026-40",
@@ -333,9 +366,11 @@
             "price": 79.99,
             "merchant": "Best Buy",
             "url": "https://www.bestbuy.com/product/grand-theft-auto-vi-code-in-box-xbox-series-x-xbox-series-s/JXHY5RKPCY/sku/6684969",
-            "notes": "Digital download code in box. ESRB M (17+)."
+            "notes": "Digital download code in box. ESRB M (17+).",
+            "image": "/images/christmas-2026-40.webp"
           }
-        ]
+        ],
+        "image": "/images/christmas-2026-13.webp"
       },
       {
         "id": "school",
@@ -348,7 +383,8 @@
             "price": 12.91,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/gp/aw/d/B0B9RCW1Z3?pd_rd_plhdr=t&hsa_cr_id=0&qid=1795743562&sr=1-1-8a1cc16b-72a8-4178-aef0-084b5cddc887&i=aps&aref=iwcxx6JbWf&_encoding=UTF8&ref_=sbx_s_sparkle_sbtcd_asin_0_bkgd&pd_rd_w=4mrmA&content-id=amzn1.sym.9b78e99f-f717-4b67-b592-24ce3c6622fe%3Aamzn1.sym.9b78e99f-f717-4b67-b592-24ce3c6622fe&pf_rd_p=9b78e99f-f717-4b67-b592-24ce3c6622fe&pf_rd_r=NQEHTZ202R6K219T16S3&pd_rd_wg=5fwPY&pd_rd_r=9508b2bb-fe07-40cc-9c29-63e1f5645def&th=1",
-            "notes": "10-pack 0.5mm fine point retractable black gel pens, quick-drying ink, soft silicone grip"
+            "notes": "10-pack 0.5mm fine point retractable black gel pens, quick-drying ink, soft silicone grip",
+            "image": "/images/christmas-2026-19.webp"
           },
           {
             "id": "christmas-2026-22",
@@ -358,7 +394,8 @@
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/B00006IFIL?th=1",
             "notes": "Low-odor ink; assorted colors; 8 chisel-tip markers",
-            "priceNote": "Last visible price on the Amazon listing."
+            "priceNote": "Last visible price on the Amazon listing.",
+            "image": "/images/christmas-2026-22.webp"
           },
           {
             "id": "christmas-2026-23",
@@ -367,9 +404,11 @@
             "price": 11.99,
             "merchant": "Office Depot",
             "url": "https://www.officedepot.com/a/products/858526696/EXPO-Low-Odor-Dry-Erase-Markers/?bvstate=pg:13/ct:r",
-            "notes": "Low-odor ink; assorted colors; 8 fine-tip markers"
+            "notes": "Low-odor ink; assorted colors; 8 fine-tip markers",
+            "image": "/images/christmas-2026-23.webp"
           }
-        ]
+        ],
+        "image": "/images/christmas-2026-19.webp"
       },
       {
         "id": "stocking-stuffers",
@@ -382,7 +421,8 @@
             "price": 9.89,
             "merchant": "Target",
             "url": "https://www.target.com/p/-/A-14940492",
-            "notes": "Four 16 oz cans"
+            "notes": "Four 16 oz cans",
+            "image": "/images/christmas-2026-36.webp"
           },
           {
             "id": "christmas-2026-37",
@@ -391,7 +431,8 @@
             "price": 4.84,
             "merchant": "Walmart",
             "url": "https://www.walmart.com/ip/15136784",
-            "notes": "Six 16.9 oz bottles"
+            "notes": "Six 16.9 oz bottles",
+            "image": "/images/christmas-2026-37.webp"
           },
           {
             "id": "christmas-2026-38",
@@ -405,7 +446,8 @@
               "label": "Costco Same-Day price",
               "url": "https://sameday.costcobusinessdelivery.com/store/costco-business-center/products/32586343-wrigley-s-extra-mint-sugarfree-gum-variety-pack-15-ct"
             },
-            "priceNote": "Delivery listing; warehouse pricing may differ."
+            "priceNote": "Delivery listing; warehouse pricing may differ.",
+            "image": "/images/christmas-2026-38.webp"
           },
           {
             "id": "christmas-2026-39",
@@ -415,9 +457,11 @@
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/B00009L1WE?th=1",
             "notes": "Silver metallic ink, model 39109PP",
-            "priceNote": "Last visible price on the Amazon listing."
+            "priceNote": "Last visible price on the Amazon listing.",
+            "image": "/images/christmas-2026-39.webp"
           }
-        ]
+        ],
+        "image": "/images/christmas-2026-38.webp"
       }
     ]
   }

@@ -82,6 +82,14 @@ function pageHeading(title, parentTitle, parentPath) {
     link(parentTitle, parentPath, 'back-link'), element('h1', {}, title));
 }
 
+function addHeadingCover(heading, path) {
+  const cover = image(path);
+  cover.loading = 'eager';
+  const copy = element('div', { className: 'wishlist-heading-copy' }, ...heading.childNodes);
+  heading.classList.add('wishlist-heading');
+  heading.append(copy, cover);
+}
+
 function renderHome(wishlists) {
   document.title = 'Jack’s Wishlists';
   content.append(element('section', { className: 'home-hero' },
@@ -122,7 +130,9 @@ function renderList(list) {
     if (category.image) tile.prepend(element('div', { className: 'tile-image' }, image(category.image)));
     grid.append(tile);
   }
-  content.append(pageHeading(list.title, 'All wishlists', '/'));
+  const heading = pageHeading(list.title, 'All wishlists', '/');
+  if (list.image) addHeadingCover(heading, list.image);
+  content.append(heading);
   if (list.sizing) content.append(sizingGuide(list.sizing));
   content.append(grid);
 }
@@ -153,8 +163,8 @@ function productCard(item) {
     }
   });
   const article = element('article', { className: item.image ? 'product' : 'product no-image' }, badge, purchase);
-  article.append(...priceContext(item));
   if (item.notes) article.append(element('p', { className: 'product-notes' }, item.notes));
+  article.append(...priceContext(item));
   article.append(element('div', { className: 'product-actions' }, cartLabel, action));
   cards.set(item.id, { article, action, cartLabel });
   return article;
@@ -169,6 +179,10 @@ function filterField(label, name, values) {
 function renderCategory(list, category) {
   const listPath = '/' + list.id;
   const header = pageHeading(category.title, list.title, listPath);
+  if (category.image) {
+    addHeadingCover(header, category.image);
+    header.classList.add('category-heading');
+  }
   const nav = element('nav', { className: 'category-nav' });
   nav.setAttribute('aria-label', 'Wishlist categories');
   for (const sibling of list.categories) {
@@ -605,6 +619,7 @@ async function loadCatalogue() {
   }
 }
 
+$('#auth-art').append(giftArt());
 $('#switch-mode').addEventListener('click', () => {
   setAuthMode(!signup);
   $('#name').focus();

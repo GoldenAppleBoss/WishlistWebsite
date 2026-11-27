@@ -126,6 +126,13 @@ h1 { font-size: clamp(2.9rem, 6.8vw, 5.6rem); line-height: .99; }
 .tile-meta p { margin-top: .25rem; color: var(--muted); font-size: .9rem; }
 
 .page-heading { margin-bottom: 1.35rem; }
+.wishlist-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, .5fr); overflow: hidden; border: 1px solid var(--line); border-radius: .6rem; background: var(--white); }
+.wishlist-heading-copy { align-self: center; padding: clamp(1.15rem, 4vw, 3rem); }
+.wishlist-heading-copy h1 { font-size: clamp(2.55rem, 6.2vw, 4.6rem); line-height: 1; }
+.wishlist-heading > img { width: 100%; height: 100%; min-height: 11rem; object-fit: cover; object-position: center 44%; }
+.wishlist-heading.category-heading { grid-template-columns: minmax(0, 1fr) minmax(6rem, 18%); }
+.category-heading > img { min-height: 0; max-height: 9rem; align-self: center; padding: .65rem; object-fit: contain; mix-blend-mode: multiply; }
+.category-heading > .category-nav { grid-column: 1 / -1; margin-top: 0; padding-inline: 1rem; border-top: 1px solid var(--line); border-bottom: none; }
 .sizing-guide { margin-bottom: 1.35rem; padding: .75rem 1rem; border: 1px solid var(--line); border-radius: .45rem; background: var(--white); }
 .sizing-guide summary { cursor: pointer; color: var(--pine); font-weight: 700; }
 .size-measurements { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: .75rem; margin: .85rem 0 .2rem; }
@@ -156,6 +163,10 @@ select { appearance: none; padding-right: 1.9rem; background: var(--white) url("
 .product { display: flex; flex-direction: column; position: relative; border: 1px solid var(--line); border-radius: .5rem; background: var(--white); }
 .products:has(> .no-image) { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
 .product-link { display: block; text-decoration: none; border-radius: inherit; }
+.product > a.product-link::after { position: absolute; inset: 0; z-index: 1; border-radius: inherit; content: ''; }
+.product > a.product-link:focus-visible { outline: none; }
+.product > a.product-link:focus-visible::after { outline: 2px solid var(--cranberry); outline-offset: 3px; }
+.product .price-context a, .product-actions button { position: relative; z-index: 2; }
 a.product-link:hover h2, h2 a.product-link:hover { text-decoration: underline; text-underline-offset: .15em; }
 .product-image { position: relative; aspect-ratio: 4 / 3; padding: 10%; border-radius: .45rem .45rem 0 0; overflow: hidden; background: #f1ede4; }
 .product-meta { padding: .8rem .9rem; }
@@ -215,7 +226,7 @@ a.product-link:hover h2, h2 a.product-link:hover { text-decoration: underline; t
 
 .auth-layout { margin: 0 auto; max-width: 56rem; grid-template-columns: 1.05fr 1fr; border: 1px solid var(--line); background: var(--white); }
 .auth-art { position: relative; background: var(--cranberry); }
-.auth-art img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 44%; }
+.auth-art .gift-art { position: absolute; inset: 0; }
 .auth-copy { padding: clamp(1.45rem, 5vw, 3.5rem); align-self: center; }
 .auth-copy h1 { font-size: clamp(2.45rem, 5.7vw, 4.25rem); }
 #auth-form { display: grid; gap: .45rem; margin-top: 1.5rem; }
@@ -245,6 +256,11 @@ dialog h2 { font-size: clamp(1.7rem, 5vw, 2.45rem); margin-bottom: .65rem; }
   .hero-copy h1 { font-size: clamp(2.35rem, 8.8vw, 3.5rem); }
   .auth-layout { grid-template-columns: 1fr; }
   .auth-art { height: clamp(9rem, 42vw, 13rem); }
+  .auth-art .gift-small { left: 32%; width: 13%; }
+  .auth-art .gift-large { left: 44%; width: 18%; }
+  .wishlist-heading { grid-template-columns: minmax(0, 1fr) minmax(6.75rem, 32%); }
+  .wishlist-heading-copy h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .wishlist-heading > img { min-height: 0; }
   .products, .category-grid, .wishlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
   .product-actions, .product-meta { padding-inline: .55rem; }
   .product-notes, .product > .price-context { padding-inline: .55rem; }
