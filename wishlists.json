@@ -38,7 +38,7 @@
           {
             "id": "christmas-2026-31",
             "title": "AULA F75 Pro 75% Wireless Mechanical Keyboard (LEOBOG Reaper Switches)",
-            "priority": "high",
+            "priority": "regular",
             "price": 68.9,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/F75-Pro/dp/B0D14N2QZF?th=1",
@@ -52,7 +52,7 @@
           {
             "id": "christmas-2026-44",
             "title": "LTT Northern Lights Mousepad (300 × 300 mm)",
-            "priority": "regular",
+            "priority": "low",
             "price": 17.49,
             "merchant": "LTT Store",
             "url": "https://www.lttstore.com/products/deskpad?snowball=PANGOLY640&variant=39449418989671",
@@ -80,7 +80,7 @@
           {
             "id": "christmas-2026-27",
             "title": "Seoul Semiconductor Acrich 5050 LEDs (STW8T16C-Q0S0-EA)",
-            "priority": "high",
+            "priority": "regular",
             "price": 5.33,
             "merchant": "DigiKey",
             "url": "https://www.digikey.com/en/products/detail/seoul-semiconductor-inc/STW8T16C-Q0S0-EA/3934440",
@@ -110,7 +110,7 @@
           {
             "id": "christmas-2026-30",
             "title": "ENGINEER PA-14 Precision Wire Stripper",
-            "priority": "high",
+            "priority": "regular",
             "price": 42,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/B001YHELPS",
@@ -151,7 +151,7 @@
           {
             "id": "christmas-2026-15",
             "title": "Essensio Bomber Jacket (Cream, Size M)",
-            "priority": "high",
+            "priority": "low",
             "price": 68,
             "merchant": "Sølvera",
             "url": "https://solverafashion.com/en/products/essensio-bomberjakke?variant=55420484518270&utm_source=google&utm_medium=organic&utm_campaign=US&utm_content=Essensio%20%7C%20Bomberjakke&currency=USD&srsltid=AYCX9vKVR4epN1mCrqfrrucdSJYnROSW3LH_GYwi4TDpQpNEt2_rf-Z7Ow0",
@@ -161,7 +161,7 @@
           {
             "id": "christmas-2026-20",
             "title": "Abercrombie & Fitch Essential Baggy Open-Hem Sweatpant (Navy, Size M)",
-            "priority": "high",
+            "priority": "regular",
             "price": 24.99,
             "merchant": "Abercrombie & Fitch",
             "url": "https://www.abercrombie.com/shop/us/p/essential-baggy-open-hem-sweatpant-61980845?seq=24&source=googleshopping",
@@ -171,7 +171,7 @@
           {
             "id": "christmas-2026-24",
             "title": "Legendary Whitetails Men's Buck Camp Flannel Shirt (Black Heather, Size M)",
-            "priority": "high",
+            "priority": "regular",
             "price": 42.99,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/Legendary-Whitetails-Flannels-Black-Heather/dp/B07G5GBJC5?th=1&psc=1",
@@ -186,7 +186,7 @@
           {
             "id": "christmas-2026-26",
             "title": "Livho Blue Light Blocking Glasses",
-            "priority": "high",
+            "priority": "low",
             "price": null,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/B0GX7Q4VBY?th=1",
@@ -197,7 +197,7 @@
           {
             "id": "christmas-2026-28",
             "title": "H&M Men’s Loose-Fit Sweatpants (Light Gray Melange)",
-            "priority": "high",
+            "priority": "low",
             "price": 26.99,
             "merchant": "H&M",
             "url": "https://www2.hm.com/en_us/productpage.1302372003.html",
@@ -237,7 +237,7 @@
           {
             "id": "christmas-2026-42",
             "title": "Banana Republic Factory Merino Wool Quarter-Zip Sweater (Double Chocolate)",
-            "priority": "high",
+            "priority": "regular",
             "price": 40,
             "merchant": "Banana Republic Factory",
             "url": "https://bananarepublicfactory.gapfactory.com/browse/product.do?pid=11755130410001",
@@ -247,7 +247,7 @@
           {
             "id": "christmas-2026-43",
             "title": "Jujutsu Kaisen 0 Yuta Okkotsu Ring Pendant Necklace",
-            "priority": "high",
+            "priority": "low",
             "price": 19.99,
             "merchant": "Etsy",
             "url": "https://www.etsy.com/listing/4313763405/jujutsu-kaisen-0-inspired-sterling",
@@ -265,7 +265,7 @@
           {
             "id": "christmas-2026-12",
             "title": "Paco Rabanne 1 Million Elixir Parfum Intense",
-            "priority": "high",
+            "priority": "low",
             "price": 92.99,
             "merchant": "Jomashop.com",
             "url": "https://www.jomashop.com/paco-rabanne-one-million-elixir-eau-de-parfum-intense-spray-100ml-3-4oz-3349668600304.html?utm_source=google&utm_medium=organic&utm_campaign=surfaces-across-google",
@@ -293,7 +293,7 @@
           {
             "id": "christmas-2026-13",
             "title": "Insignia 4.5 Cu. Ft. Mini Fridge with Top Freezer and ENERGY STAR Certification",
-            "priority": "high",
+            "priority": "top",
             "price": 189.99,
             "merchant": "Best Buy",
             "url": "https://www.bestbuy.com/product/insignia-4-5-cu-ft-mini-fridge-with-top-freezer-and-energy-star-certification-stainless-steel-look/J2FPJK9YVJ/sku/6634588?utm_source=feed",
@@ -303,7 +303,7 @@
           {
             "id": "christmas-2026-17",
             "title": "SELKIRK Pro S1 Pickleball",
-            "priority": "high",
+            "priority": "regular",
             "price": 14.99,
             "merchant": "Pickleball Paddles US",
             "url": "https://pickleballpaddlesus.com/products/selkirk-s1-pro-outdoor-pickleballs",
@@ -314,7 +314,7 @@
           {
             "id": "christmas-2026-21",
             "title": "Apple AirPods 5 Wireless Earbuds with Active Noise Cancellation",
-            "priority": "high",
+            "priority": "regular",
             "price": 129,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/Apple-Cancellation-Wireless-Personalized-Translation/dp/B0HJB69GJL/ref=sr_1_3?dib=eyJ2IjoiMSJ9.-xfAPI1QMh2hLv0FJlnfd7TU6bYkuh-ksOYp_a77BnLg72KwpdVzTnSqV9qzFY_np9_04JccS3YGV0BkpmgBIKkbsJTbZlqfrnwxAtb0EFGZqcqvPwfhWsUDYQfX94raSRz0U1JOyv-E84S5n45rWjc4xt6ObUUS70sfHTxO9n_x-6rs7CY7OOFduDvXMq_SOH4SR9rQUtiU87zR2-ynSyK4BcrzJblLnZyNKLBsG5g.fxMEbGBFJboqRPtf9eNJk-QZpX5VDYxElfwk04yojjI&dib_tag=se&keywords=airpods%2B5&qid=1795743709&sr=8-3&th=1",
@@ -324,7 +324,7 @@
           {
             "id": "christmas-2026-25",
             "title": "Xbox Wireless Controller (Pulse Red)",
-            "priority": "high",
+            "priority": "low",
             "price": 49.99,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/Xbox-Wireless-Gaming-Controller-Headsets-Console/dp/B0F1HDBJKH?th=1",
@@ -338,7 +338,7 @@
           {
             "id": "christmas-2026-33",
             "title": "Jujutsu Kaisen, Vol. 29 (Paperback)",
-            "priority": "high",
+            "priority": "low",
             "price": 8.99,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/1974762017",
@@ -348,7 +348,7 @@
           {
             "id": "christmas-2026-35",
             "title": "Majority HDMI DVD Player with Remote",
-            "priority": "high",
+            "priority": "low",
             "price": 29.95,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/B098TWW7KK",
@@ -362,7 +362,7 @@
           {
             "id": "christmas-2026-40",
             "title": "Grand Theft Auto VI (Xbox Series X|S, Code in Box)",
-            "priority": "high",
+            "priority": "low",
             "price": 79.99,
             "merchant": "Best Buy",
             "url": "https://www.bestbuy.com/product/grand-theft-auto-vi-code-in-box-xbox-series-x-xbox-series-s/JXHY5RKPCY/sku/6684969",
@@ -400,7 +400,7 @@
           {
             "id": "christmas-2026-23",
             "title": "EXPO Low-Odor Dry Erase Markers (Fine Tip, Assorted Colors, 8-Pack)",
-            "priority": "high",
+            "priority": "regular",
             "price": 11.99,
             "merchant": "Office Depot",
             "url": "https://www.officedepot.com/a/products/858526696/EXPO-Low-Odor-Dry-Erase-Markers/?bvstate=pg:13/ct:r",
@@ -417,7 +417,7 @@
           {
             "id": "christmas-2026-36",
             "title": "Monster Zero Ultra (White, 4-Pack)",
-            "priority": "high",
+            "priority": "low",
             "price": 9.89,
             "merchant": "Target",
             "url": "https://www.target.com/p/-/A-14940492",
@@ -427,7 +427,7 @@
           {
             "id": "christmas-2026-37",
             "title": "Dr Pepper Original (6-Pack)",
-            "priority": "high",
+            "priority": "low",
             "price": 4.84,
             "merchant": "Walmart",
             "url": "https://www.walmart.com/ip/15136784",
@@ -437,7 +437,7 @@
           {
             "id": "christmas-2026-38",
             "title": "Extra Sugar-Free Gum Mint Variety Pack (18 Packs)",
-            "priority": "high",
+            "priority": "low",
             "price": 20.42,
             "merchant": "Costco",
             "url": "https://www.costco.com/p/-/extra-sugar-free-chewing-gum-mint-variety-pack-15-sticks-18-count/4000184371",
@@ -452,7 +452,7 @@
           {
             "id": "christmas-2026-39",
             "title": "Sharpie Metallic Silver Fine-Point Permanent Markers (4-Pack)",
-            "priority": "high",
+            "priority": "low",
             "price": 5.84,
             "merchant": "Amazon",
             "url": "https://www.amazon.com/dp/B00009L1WE?th=1",
