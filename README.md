@@ -8,7 +8,7 @@ If port 3000 is busy, open that URL first to see whether the wishlist is already
 
 ## Add a wishlist
 
-Add an entry to [wishlists.json](wishlists.json), then restart the local server or redeploy to Vercel. Each list has a unique URL-safe `id`, a `title`, an optional short `occasion` label and cover `image`, and an array of `categories`. Categories have their own `id`, `title`, `image`, and `items`. An item needs a globally unique, stable `id`, a `title`, a numeric `price`, and an `image`. Set `priority` to `top`, `high`, `regular`, or `low`. The store `url` is optional. Put any new WebP images in `images/` and use lowercase filenames. The home page, category navigation, and page routes update from the catalogue.
+Add an entry to [wishlists.json](wishlists.json), then restart the local server or redeploy to Vercel. Each list has a unique URL-safe `id`, a `title`, and an array of `categories`. The list can also include an `occasion` label, cover `image`, and `sizing` guide. Categories have their own `id`, `title`, and `items`. Each item needs a globally unique, stable `id` and a `title`. Use a numeric `price` or `null` if the price is unavailable. Set `priority` to `top`, `high`, `regular`, or `low`. Images are optional for categories and items. Put any new WebP or JPEG files in `images/` and use lowercase filenames. The home page, category navigation, and page routes update from the catalogue.
 
 ## Deploy to Vercel
 

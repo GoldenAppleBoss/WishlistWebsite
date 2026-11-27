@@ -38,6 +38,32 @@ function itemPriority(item) {
   return Object.hasOwn(priorities, item.priority) ? item.priority : 'regular';
 }
 
+function itemPrice(item) {
+  if (!Number.isFinite(item.price)) return 'Price not listed';
+  const startingPrice = money.format(item.price);
+  if (!Number.isFinite(item.priceMax)) return startingPrice;
+  const range = startingPrice + '–' + money.format(item.priceMax);
+  return item.quantity ? range + ' for ' + item.quantity + ' units' : range;
+}
+
+function priceContext(item) {
+  const context = [];
+  if (item.priceSource && /^https:\/\//i.test(item.priceSource.url)) {
+    const source = link(item.priceSource.label, item.priceSource.url);
+    source.target = '_blank';
+    source.rel = 'noopener noreferrer';
+    context.push(source);
+  }
+  if (item.priceNote) context.push(element('p', {}, item.priceNote));
+  return context.length ? [element('div', { className: 'price-context' }, ...context)] : [];
+}
+
+function comparePrices(a, b, direction) {
+  if (!Number.isFinite(a.price)) return Number(Number.isFinite(b.price));
+  if (!Number.isFinite(b.price)) return -1;
+  return direction * (a.price - b.price);
+}
+
 function button(label, onclick, className = 'button') {
   return element('button', { type: 'button', className, onclick }, label);
 }
@@ -77,16 +103,28 @@ function renderHome(wishlists) {
   content.append(section);
 }
 
+function sizingGuide(sizes) {
+  const measurements = element('dl', { className: 'size-measurements' });
+  for (const [label, size] of Object.entries(sizes)) {
+    measurements.append(element('div', {}, element('dt', {}, label), element('dd', {}, size)));
+  }
+  return element('details', { className: 'sizing-guide' }, element('summary', {}, 'Sizing guide'), measurements);
+}
+
 function renderList(list) {
   const grid = element('div', { className: 'category-grid' });
   for (const category of list.categories) {
-    const tile = element('a', { className: 'category-tile', href: '/' + list.id + '/' + category.id },
-      element('div', { className: 'tile-image' }, image(category.image)),
+    const tile = element('a', {
+      className: category.image ? 'category-tile' : 'category-tile no-image', href: '/' + list.id + '/' + category.id
+    },
       element('div', { className: 'tile-meta' }, element('h2', {}, category.title),
         element('p', {}, countLabel(category.items.length))));
+    if (category.image) tile.prepend(element('div', { className: 'tile-image' }, image(category.image)));
     grid.append(tile);
   }
-  content.append(pageHeading(list.title, 'All wishlists', '/'), grid);
+  content.append(pageHeading(list.title, 'All wishlists', '/'));
+  if (list.sizing) content.append(sizingGuide(list.sizing));
+  content.append(grid);
 }
 
 function storeLink(item, ...children) {
@@ -97,10 +135,11 @@ function storeLink(item, ...children) {
 }
 
 function productCard(item) {
-  const purchase = storeLink(item,
-    element('div', { className: 'product-image' }, image(item.image)),
-    element('div', { className: 'product-meta' },
-      element('h2', {}, item.title), element('p', { className: 'price' }, money.format(item.price))));
+  const details = element('div', { className: 'product-meta' },
+    element('h2', {}, item.title), element('p', { className: 'price' }, itemPrice(item)));
+  if (item.merchant) details.append(element('p', { className: 'product-merchant' }, item.merchant));
+  const purchase = storeLink(item, details);
+  if (item.image) purchase.prepend(element('div', { className: 'product-image' }, image(item.image)));
   const tier = itemPriority(item);
   const badge = element('span', { className: 'priority ' + tier }, priorities[tier]);
   const cartLabel = element('span', { className: 'reservation', hidden: true });
@@ -113,8 +152,10 @@ function productCard(item) {
       changeCart(item, 'add');
     }
   });
-  const article = element('article', { className: 'product' }, purchase, badge,
-    element('div', { className: 'product-actions' }, cartLabel, action));
+  const article = element('article', { className: item.image ? 'product' : 'product no-image' }, badge, purchase);
+  article.append(...priceContext(item));
+  if (item.notes) article.append(element('p', { className: 'product-notes' }, item.notes));
+  article.append(element('div', { className: 'product-actions' }, cartLabel, action));
   cards.set(item.id, { article, action, cartLabel });
   return article;
 }
@@ -142,8 +183,10 @@ function renderCategory(list, category) {
   const sort = filterField('Sort by', 'sort', { priority: 'Priority', asc: 'Price low to high', desc: 'Price high to low', name: 'Name A–Z' });
   const filters = element('form', { className: 'filters' });
   filters.setAttribute('aria-label', 'Filter and sort items');
+  const prices = { all: 'Any price', ...(category.priceRanges ?? priceRanges) };
+  if (category.items.some(item => !Number.isFinite(item.price))) prices.unpriced = 'Price not listed';
   const options = element('div', { className: 'filter-options', id: 'filter-options' },
-    filterField('Price', 'price', { all: 'Any price', ...(category.priceRanges ?? priceRanges) }),
+    filterField('Price', 'price', prices),
     filterField('Priority', 'priority', { all: 'All priorities', ...priorities }),
     filterField('Availability', 'availability', {
       all: 'All items', available: 'Available', mine: 'In your cart', reserved: 'In another cart'
@@ -165,7 +208,9 @@ function renderCategory(list, category) {
   const empty = element('div', { className: 'empty', hidden: true },
     element('p', {}, 'No items match these filters.'), button('Clear filters', clearFilters, 'text-button'));
   const products = element('div', { className: 'products' }, ...category.items.map(productCard));
-  content.append(header, filters, results, products, empty);
+  content.append(header);
+  if (category.id === 'apparel' && list.sizing) content.append(sizingGuide(list.sizing));
+  content.append(filters, results, products, empty);
 
   function clearFilters() {
     search.value = '';
@@ -197,7 +242,10 @@ function renderCategory(list, category) {
         || (availability === 'available' && !mine && !reserved)
         || (availability === 'mine' && mine)
         || (availability === 'reserved' && reserved);
-      card.hidden = !(item.price >= min && item.price < max
+      const listedPrice = Number.isFinite(item.price);
+      const matchesPrice = price === 'all' || (price === 'unpriced' && !listedPrice)
+        || (listedPrice && (item.priceMax ?? item.price) >= min && item.price < max);
+      card.hidden = !(matchesPrice
         && (priority === 'all' || itemPriority(item) === priority)
         && (type === 'all' || item.type === type)
         && matchesAvailability && item.title.toLowerCase().includes(query));
@@ -213,10 +261,10 @@ function renderCategory(list, category) {
   }
 
   const sorters = {
-    priority: (a, b) => priorityOrder.indexOf(itemPriority(a)) - priorityOrder.indexOf(itemPriority(b)) || b.price - a.price,
+    priority: (a, b) => priorityOrder.indexOf(itemPriority(a)) - priorityOrder.indexOf(itemPriority(b)) || comparePrices(a, b, -1),
     name: (a, b) => a.title.localeCompare(b.title),
-    asc: (a, b) => a.price - b.price,
-    desc: (a, b) => b.price - a.price
+    asc: (a, b) => comparePrices(a, b, 1),
+    desc: (a, b) => comparePrices(a, b, -1)
   };
   function sortProducts() {
     const value = filters.elements.namedItem('sort').value;
@@ -256,11 +304,13 @@ function updateCartView() {
     const details = element('div', { className: 'cart-details' },
       element('h2', {}, storeLink(item, item.title)),
       link(list.title + ' · ' + category.title, '/' + list.id + '/' + category.id, 'cart-source'),
-      element('p', { className: 'price' }, money.format(item.price)), owners);
+      element('p', { className: 'price' }, itemPrice(item)), ...priceContext(item), owners);
     const remove = button('Remove', () => changeCart(item, 'remove'), 'button secondary');
     remove.dataset.cartItem = id;
     remove.setAttribute('aria-label', 'Remove ' + item.title);
-    rows.push(element('li', { className: 'cart-row' }, image(item.image), details, remove));
+    const row = element('li', { className: item.image ? 'cart-row' : 'cart-row no-image' }, details, remove);
+    if (item.image) row.prepend(image(item.image));
+    rows.push(row);
   }
   if (rows.length) {
     cartView.replaceChildren(element('ul', { className: 'cart-items' }, ...rows));
