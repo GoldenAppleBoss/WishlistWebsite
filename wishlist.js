@@ -38,24 +38,11 @@ function itemPriority(item) {
   return Object.hasOwn(priorities, item.priority) ? item.priority : 'regular';
 }
 
-function itemPrice(item) {
-  if (!Number.isFinite(item.price)) return 'Price not listed';
-  const startingPrice = money.format(item.price);
-  if (!Number.isFinite(item.priceMax)) return startingPrice;
-  const range = startingPrice + '–' + money.format(item.priceMax);
-  return item.quantity ? range + ' for ' + item.quantity + ' units' : range;
-}
-
-function priceContext(item) {
-  const context = [];
-  if (item.priceSource && /^https:\/\//i.test(item.priceSource.url)) {
-    const source = link(item.priceSource.label, item.priceSource.url);
-    source.target = '_blank';
-    source.rel = 'noopener noreferrer';
-    context.push(source);
-  }
-  if (item.priceNote) context.push(element('p', {}, item.priceNote));
-  return context.length ? [element('div', { className: 'price-context' }, ...context)] : [];
+function priceTag(item) {
+  if (!Number.isFinite(item.price)) return [];
+  const start = money.format(item.price);
+  const label = Number.isFinite(item.priceMax) ? start + '–' + money.format(item.priceMax) : start;
+  return [element('p', { className: 'price' }, label)];
 }
 
 function comparePrices(a, b, direction) {
@@ -146,8 +133,7 @@ function storeLink(item, ...children) {
 
 function productCard(item) {
   const details = element('div', { className: 'product-meta' },
-    element('h2', {}, item.title), element('p', { className: 'price' }, itemPrice(item)));
-  if (item.merchant) details.append(element('p', { className: 'product-merchant' }, item.merchant));
+    element('h2', {}, item.title), ...priceTag(item));
   const purchase = storeLink(item, details);
   if (item.image) purchase.prepend(element('div', { className: 'product-image' }, image(item.image)));
   const tier = itemPriority(item);
@@ -163,8 +149,6 @@ function productCard(item) {
     }
   });
   const article = element('article', { className: item.image ? 'product' : 'product no-image' }, badge, purchase);
-  if (item.notes) article.append(element('p', { className: 'product-notes' }, item.notes));
-  article.append(...priceContext(item));
   article.append(element('div', { className: 'product-actions' }, cartLabel, action));
   cards.set(item.id, { article, action, cartLabel });
   return article;
@@ -197,10 +181,8 @@ function renderCategory(list, category) {
   const sort = filterField('Sort by', 'sort', { priority: 'Priority', asc: 'Price low to high', desc: 'Price high to low', name: 'Name A–Z' });
   const filters = element('form', { className: 'filters' });
   filters.setAttribute('aria-label', 'Filter and sort items');
-  const prices = { all: 'Any price', ...(category.priceRanges ?? priceRanges) };
-  if (category.items.some(item => !Number.isFinite(item.price))) prices.unpriced = 'Price not listed';
   const options = element('div', { className: 'filter-options', id: 'filter-options' },
-    filterField('Price', 'price', prices),
+    filterField('Price', 'price', { all: 'Any price', ...(category.priceRanges ?? priceRanges) }),
     filterField('Priority', 'priority', { all: 'All priorities', ...priorities }),
     filterField('Availability', 'availability', {
       all: 'All items', available: 'Available', mine: 'In your cart', reserved: 'In another cart'
@@ -257,7 +239,7 @@ function renderCategory(list, category) {
         || (availability === 'mine' && mine)
         || (availability === 'reserved' && reserved);
       const listedPrice = Number.isFinite(item.price);
-      const matchesPrice = price === 'all' || (price === 'unpriced' && !listedPrice)
+      const matchesPrice = price === 'all'
         || (listedPrice && (item.priceMax ?? item.price) >= min && item.price < max);
       card.hidden = !(matchesPrice
         && (priority === 'all' || itemPriority(item) === priority)
@@ -318,7 +300,7 @@ function updateCartView() {
     const details = element('div', { className: 'cart-details' },
       element('h2', {}, storeLink(item, item.title)),
       link(list.title + ' · ' + category.title, '/' + list.id + '/' + category.id, 'cart-source'),
-      element('p', { className: 'price' }, itemPrice(item)), ...priceContext(item), owners);
+      ...priceTag(item), owners);
     const remove = button('Remove', () => changeCart(item, 'remove'), 'button secondary');
     remove.dataset.cartItem = id;
     remove.setAttribute('aria-label', 'Remove ' + item.title);

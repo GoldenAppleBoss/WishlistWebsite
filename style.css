@@ -166,16 +166,11 @@ select { appearance: none; padding-right: 1.9rem; background: var(--white) url("
 .product > a.product-link::after { position: absolute; inset: 0; z-index: 1; border-radius: inherit; content: ''; }
 .product > a.product-link:focus-visible { outline: none; }
 .product > a.product-link:focus-visible::after { outline: 2px solid var(--cranberry); outline-offset: 3px; }
-.product .price-context a, .product-actions button { position: relative; z-index: 2; }
+.product-actions button { position: relative; z-index: 2; }
 a.product-link:hover h2, h2 a.product-link:hover { text-decoration: underline; text-underline-offset: .15em; }
 .product-image { position: relative; aspect-ratio: 4 / 3; padding: 10%; border-radius: .45rem .45rem 0 0; overflow: hidden; background: #f1ede4; }
 .product-meta { padding: .8rem .9rem; }
 .product-meta h2 { font-size: 1rem; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; }
-.product-merchant { margin-top: .25rem; color: var(--muted); font-size: .875rem; }
-.product-notes { padding: 0 .9rem .85rem; overflow-wrap: anywhere; color: var(--muted); font-size: .875rem; line-height: 1.45; }
-.price-context { display: grid; justify-items: start; gap: .25rem; color: var(--muted); font-size: .875rem; overflow-wrap: anywhere; }
-.product > .price-context { padding: 0 .9rem .75rem; }
-.cart-details > .price-context { margin-top: .3rem; }
 .price { color: var(--muted); margin-top: .25rem; font-size: .9rem; font-variant-numeric: tabular-nums; }
 .priority { position: absolute; top: .5rem; left: .5rem; padding: .25rem .45rem; border-radius: .25rem; font-size: .875rem; font-weight: 700; pointer-events: none; }
 .product.no-image .priority { position: static; align-self: flex-start; margin: .75rem .9rem 0; }
@@ -263,7 +258,6 @@ dialog h2 { font-size: clamp(1.7rem, 5vw, 2.45rem); margin-bottom: .65rem; }
   .wishlist-heading > img { min-height: 0; }
   .products, .category-grid, .wishlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
   .product-actions, .product-meta { padding-inline: .55rem; }
-  .product-notes, .product > .price-context { padding-inline: .55rem; }
   .product.no-image .priority { margin-inline: .55rem; }
   .search-field { order: -1; flex-basis: 100%; }
   .filter-options { align-items: stretch; flex-direction: column; }
