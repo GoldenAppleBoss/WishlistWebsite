@@ -122,6 +122,15 @@
             "merchant": "Office Depot",
             "url": "https://www.officedepot.com/a/products/858526696/EXPO-Low-Odor-Dry-Erase-Markers/?bvstate=pg:13/ct:r",
             "image": "/images/christmas-2026-23.webp"
+          },
+          {
+            "id": "christmas-2026-39",
+            "title": "Sharpie Metallic Silver Fine-Point Permanent Markers (4-Pack)",
+            "priority": "low",
+            "price": 5.84,
+            "merchant": "Amazon",
+            "url": "https://www.amazon.com/dp/B00009L1WE?th=1",
+            "image": "/images/christmas-2026-39.webp"
           }
         ],
         "image": "/images/christmas-2026-mintra-spiral-pack.webp"
@@ -143,7 +152,7 @@
             "id": "christmas-2026-adafruit-perma-proto",
             "title": "Adafruit Perma-Proto Half-Size Breadboard PCBs (3-Pack)",
             "priority": "high",
-            "price": 12.50,
+            "price": 12.5,
             "merchant": "Adafruit",
             "url": "https://www.adafruit.com/product/571",
             "image": "/images/christmas-2026-adafruit-perma-proto.webp"
@@ -206,6 +215,15 @@
               "url": "https://daitool.com/products/engineer-wire-stripper-for-ultrathin-wire-pa-14"
             },
             "image": "/images/christmas-2026-30.webp"
+          },
+          {
+            "id": "christmas-2026-polymaker-black-pla",
+            "title": "Polymaker PolyLite PLA Pro Filament (Black, 1.75 mm, 1 kg)",
+            "priority": "regular",
+            "price": 23.99,
+            "merchant": "Polymaker",
+            "url": "https://shop.polymaker.com/products/polylite-pla-pro?variant=39574346334265",
+            "image": "/images/christmas-2026-polymaker-black-pla.webp"
           }
         ],
         "image": "/images/christmas-2026-29.webp"
@@ -444,13 +462,13 @@
             "image": "/images/christmas-2026-38.webp"
           },
           {
-            "id": "christmas-2026-39",
-            "title": "Sharpie Metallic Silver Fine-Point Permanent Markers (4-Pack)",
-            "priority": "low",
-            "price": 5.84,
-            "merchant": "Amazon",
-            "url": "https://www.amazon.com/dp/B00009L1WE?th=1",
-            "image": "/images/christmas-2026-39.webp"
+            "id": "christmas-2026-black-zip-ties",
+            "title": "Commercial Electric Black UV-Resistant Zip Ties (4, 8 and 11 in., 650-Pack)",
+            "priority": "regular",
+            "price": 24.96,
+            "merchant": "Home Depot",
+            "url": "https://www.homedepot.com/p/302366855",
+            "image": "/images/christmas-2026-black-zip-ties.webp"
           }
         ],
         "image": "/images/christmas-2026-walmart-gift-card.webp"
