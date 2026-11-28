@@ -224,6 +224,15 @@
             "merchant": "Polymaker",
             "url": "https://shop.polymaker.com/products/polylite-pla-pro?variant=39574346334265",
             "image": "/images/christmas-2026-polymaker-black-pla.webp"
+          },
+          {
+            "id": "christmas-2026-black-zip-ties",
+            "title": "Commercial Electric Black UV-Resistant Zip Ties (4, 8 and 11 in., 650-Pack)",
+            "priority": "regular",
+            "price": 24.96,
+            "merchant": "Home Depot",
+            "url": "https://www.homedepot.com/p/302366855",
+            "image": "/images/christmas-2026-black-zip-ties.webp"
           }
         ],
         "image": "/images/christmas-2026-29.webp"
@@ -460,15 +469,6 @@
               "url": "https://sameday.costcobusinessdelivery.com/store/costco-business-center/products/32586343-wrigley-s-extra-mint-sugarfree-gum-variety-pack-15-ct"
             },
             "image": "/images/christmas-2026-38.webp"
-          },
-          {
-            "id": "christmas-2026-black-zip-ties",
-            "title": "Commercial Electric Black UV-Resistant Zip Ties (4, 8 and 11 in., 650-Pack)",
-            "priority": "regular",
-            "price": 24.96,
-            "merchant": "Home Depot",
-            "url": "https://www.homedepot.com/p/302366855",
-            "image": "/images/christmas-2026-black-zip-ties.webp"
           }
         ],
         "image": "/images/christmas-2026-walmart-gift-card.webp"
